@@ -1,0 +1,477 @@
+date,card_id,name,set_name,set_id,rarity,card_number,release_date,market_price,low_price,mid_price,high_price,tcgplayer_url
+2026-06-22,sv8pt5-161,Umbreon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,161,2025/01/17,1523.35,1229.81,1979.97,3998.38,https://prices.pokemontcg.io/tcgplayer/sv8pt5-161
+2026-06-22,sv4pt5-232,Mew ex,Paldean Fates,sv4pt5,Special Illustration Rare,232,2024/01/26,1026.76,974.0,1099.99,10000.0,https://prices.pokemontcg.io/tcgplayer/sv4pt5-232
+2026-06-22,me2-125,Mega Charizard X ex,Phantasmal Flames,me2,Special Illustration Rare,125,2025/11/14,856.79,875.0,1000.0,10000.0,https://prices.pokemontcg.io/tcgplayer/me2-125
+2026-06-22,sv10-231,Team Rocket's Mewtwo ex,Destined Rivals,sv10,Special Illustration Rare,231,2025/05/30,560.86,500.0,618.0,899.98,https://prices.pokemontcg.io/tcgplayer/sv10-231
+2026-06-22,sv8pt5-156,Sylveon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,156,2025/01/17,534.61,519.99,794.99,1998.26,https://prices.pokemontcg.io/tcgplayer/sv8pt5-156
+2026-06-22,sv3pt5-199,Charizard ex,151,sv3pt5,Special Illustration Rare,199,2023/09/22,461.39,379.99,499.0,10000.0,https://prices.pokemontcg.io/tcgplayer/sv3pt5-199
+2026-06-22,sv2-203,Magikarp,Paldea Evolved,sv2,Illustration Rare,203,2023/06/09,425.18,350.0,452.49,1200.0,https://prices.pokemontcg.io/tcgplayer/sv2-203
+2026-06-22,sv6-214,Greninja ex,Twilight Masquerade,sv6,Special Illustration Rare,214,2024/05/24,400.2,383.32,414.83,1999.99,https://prices.pokemontcg.io/tcgplayer/sv6-214
+2026-06-22,sv8-238,Pikachu ex,Surging Sparks,sv8,Special Illustration Rare,238,2024/11/08,384.01,312.5,422.97,549.95,https://prices.pokemontcg.io/tcgplayer/sv8-238
+2026-06-22,me2-130,Mega Charizard X ex,Phantasmal Flames,me2,Mega Hyper Rare,130,2025/11/14,356.69,298.9,402.71,99999.0,https://prices.pokemontcg.io/tcgplayer/me2-130
+2026-06-22,sv4pt5-234,Charizard ex,Paldean Fates,sv4pt5,Special Illustration Rare,234,2024/01/26,336.53,318.6,397.62,1682.65,https://prices.pokemontcg.io/tcgplayer/sv4pt5-234
+2026-06-22,sv8pt5-144,Leafeon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,144,2025/01/17,324.93,295.49,350.0,1200.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-144
+2026-06-22,sv8pt5-155,Espeon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,155,2025/01/17,322.77,295.19,349.99,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-155
+2026-06-22,sv8pt5-149,Vaporeon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,149,2025/01/17,303.51,290.0,380.0,2000.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-149
+2026-06-22,sv8pt5-150,Glaceon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,150,2025/01/17,302.51,292.44,363.01,1967.56,https://prices.pokemontcg.io/tcgplayer/sv8pt5-150
+2026-06-22,sv10-232,Cynthia's Garchomp ex,Destined Rivals,sv10,Special Illustration Rare,232,2025/05/30,289.87,265.0,319.17,1449.35,https://prices.pokemontcg.io/tcgplayer/sv10-232
+2026-06-22,me1-188,Mega Lucario ex,Mega Evolution,me1,Mega Hyper Rare,188,2025/09/26,283.63,266.74,290.49,2605.66,https://prices.pokemontcg.io/tcgplayer/me1-188
+2026-06-22,zsv10pt5-166,Zekrom ex,Black Bolt,zsv10pt5,Special Illustration Rare,166,2025/07/18,271.81,299.99,399.95,1000.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-166
+2026-06-22,me1-179,Mega Lucario ex,Mega Evolution,me1,Special Illustration Rare,179,2025/09/26,245.74,209.98,270.32,1510.4,https://prices.pokemontcg.io/tcgplayer/me1-179
+2026-06-22,zsv10pt5-105,Seismitoad,Black Bolt,zsv10pt5,Illustration Rare,105,2025/07/18,241.0,242.99,260.0,1816.3,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-105
+2026-06-22,me1-187,Mega Gardevoir ex,Mega Evolution,me1,Mega Hyper Rare,187,2025/09/26,226.43,210.0,230.0,999.0,https://prices.pokemontcg.io/tcgplayer/me1-187
+2026-06-22,rsv10pt5-166,Reshiram ex,White Flare,rsv10pt5,Special Illustration Rare,166,2025/07/18,214.44,205.0,255.26,1653.1,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-166
+2026-06-22,sv8pt5-146,Flareon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,146,2025/01/17,211.72,198.01,254.99,1595.1,https://prices.pokemontcg.io/tcgplayer/sv8pt5-146
+2026-06-22,sv4pt5-233,Gardevoir ex,Paldean Fates,sv4pt5,Special Illustration Rare,233,2024/01/26,206.88,174.0,217.5,276.99,https://prices.pokemontcg.io/tcgplayer/sv4pt5-233
+2026-06-22,sv8pt5-153,Jolteon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,153,2025/01/17,205.62,193.99,222.34,1463.1,https://prices.pokemontcg.io/tcgplayer/sv8pt5-153
+2026-06-22,me1-178,Mega Gardevoir ex,Mega Evolution,me1,Special Illustration Rare,178,2025/09/26,203.63,184.99,229.99,1711.2,https://prices.pokemontcg.io/tcgplayer/me1-178
+2026-06-22,sv10-230,Ethan's Ho-Oh ex,Destined Rivals,sv10,Special Illustration Rare,230,2025/05/30,200.45,161.69,232.69,9999.0,https://prices.pokemontcg.io/tcgplayer/sv10-230
+2026-06-22,sv8-239,Latias ex,Surging Sparks,sv8,Special Illustration Rare,239,2024/11/08,190.35,170.0,210.18,1754.9,https://prices.pokemontcg.io/tcgplayer/sv8-239
+2026-06-22,sv8pt5-167,Eevee ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,167,2025/01/17,190.08,179.99,224.89,3009.8,https://prices.pokemontcg.io/tcgplayer/sv8pt5-167
+2026-06-22,me1-177,Mega Venusaur ex,Mega Evolution,me1,Special Illustration Rare,177,2025/09/26,189.29,171.99,200.11,1307.9,https://prices.pokemontcg.io/tcgplayer/me1-177
+2026-06-22,sv6-220,Perrin,Twilight Masquerade,sv6,Special Illustration Rare,220,2024/05/24,185.87,170.39,200.0,1212.7,https://prices.pokemontcg.io/tcgplayer/sv6-220
+2026-06-22,sv8pt5-162,Roaring Moon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,162,2025/01/17,177.4,150.0,219.37,1499.6,https://prices.pokemontcg.io/tcgplayer/sv8pt5-162
+2026-06-22,sv3pt5-200,Blastoise ex,151,sv3pt5,Special Illustration Rare,200,2023/09/22,163.49,129.1,175.0,20000.0,https://prices.pokemontcg.io/tcgplayer/sv3pt5-200
+2026-06-22,sv8-237,Milotic ex,Surging Sparks,sv8,Special Illustration Rare,237,2024/11/08,142.9,130.0,167.01,969.9,https://prices.pokemontcg.io/tcgplayer/sv8-237
+2026-06-22,sv8pt5-165,Dragapult ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,165,2025/01/17,137.25,123.69,142.91,1609.9,https://prices.pokemontcg.io/tcgplayer/sv8pt5-165
+2026-06-22,sv7-143,Bulbasaur,Stellar Crown,sv7,Illustration Rare,143,2024/09/13,135.53,131.69,150.0,797.78,https://prices.pokemontcg.io/tcgplayer/sv7-143
+2026-06-22,sv10-233,Team Rocket's Nidoking ex,Destined Rivals,sv10,Special Illustration Rare,233,2025/05/30,131.21,124.0,156.14,936.7,https://prices.pokemontcg.io/tcgplayer/sv10-233
+2026-06-22,sv3pt5-198,Venusaur ex,151,sv3pt5,Special Illustration Rare,198,2023/09/22,127.91,111.15,144.4,1239.06,https://prices.pokemontcg.io/tcgplayer/sv3pt5-198
+2026-06-22,sv7-148,Squirtle,Stellar Crown,sv7,Illustration Rare,148,2024/09/13,127.85,115.0,143.1,1043.19,https://prices.pokemontcg.io/tcgplayer/sv7-148
+2026-06-22,sv9-184,Lillie's Clefairy ex,Journey Together,sv9,Special Illustration Rare,184,2025/03/28,126.27,120.0,144.86,1251.2,https://prices.pokemontcg.io/tcgplayer/sv9-184
+2026-06-22,sv10-229,Team Rocket's Moltres ex,Destined Rivals,sv10,Special Illustration Rare,229,2025/05/30,125.24,121.0,149.82,919.22,https://prices.pokemontcg.io/tcgplayer/sv10-229
+2026-06-22,sv3pt5-168,Charmander,151,sv3pt5,Illustration Rare,168,2023/09/22,123.02,91.0,138.1,503.2,https://prices.pokemontcg.io/tcgplayer/sv3pt5-168
+2026-06-22,sv4-199,Groudon,Paradox Rift,sv4,Illustration Rare,199,2023/11/03,122.85,94.4,137.16,899.22,https://prices.pokemontcg.io/tcgplayer/sv4-199
+2026-06-22,sv3-223,Charizard ex,Obsidian Flames,sv3,Special Illustration Rare,223,2023/08/11,122.83,84.99,139.3,999.99,https://prices.pokemontcg.io/tcgplayer/sv3-223
+2026-06-22,sv2-211,Raichu,Paldea Evolved,sv2,Illustration Rare,211,2023/06/09,120.32,91.15,120.09,879.66,https://prices.pokemontcg.io/tcgplayer/sv2-211
+2026-06-22,sv3pt5-170,Squirtle,151,sv3pt5,Illustration Rare,170,2023/09/22,116.81,90.0,126.0,958.52,https://prices.pokemontcg.io/tcgplayer/sv3pt5-170
+2026-06-22,sv3pt5-202,Zapdos ex,151,sv3pt5,Special Illustration Rare,202,2023/09/22,111.39,100.0,130.2,507.8,https://prices.pokemontcg.io/tcgplayer/sv3pt5-202
+2026-06-22,sv5-177,Gastly,Temporal Forces,sv5,Illustration Rare,177,2024/03/22,109.17,101.37,119.99,498.8,https://prices.pokemontcg.io/tcgplayer/sv5-177
+2026-06-22,sv2-226,Maushold,Paldea Evolved,sv2,Illustration Rare,226,2023/06/09,106.32,90.0,111.25,9999.0,https://prices.pokemontcg.io/tcgplayer/sv2-226
+2026-06-22,sv3pt5-173,Pikachu,151,sv3pt5,Illustration Rare,173,2023/09/22,104.8,72.11,109.99,10000.0,https://prices.pokemontcg.io/tcgplayer/sv3pt5-173
+2026-06-22,sv8pt5-147,Ceruledge ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,147,2025/01/17,99.79,90.0,114.6,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-147
+2026-06-22,sv8-247,Pikachu ex,Surging Sparks,sv8,Hyper Rare,247,2024/11/08,96.33,94.0,128.17,568.7,https://prices.pokemontcg.io/tcgplayer/sv8-247
+2026-06-22,me1-181,Mega Latias ex,Mega Evolution,me1,Special Illustration Rare,181,2025/09/26,96.27,85.0,104.97,999.0,https://prices.pokemontcg.io/tcgplayer/me1-181
+2026-06-22,sv6-188,Eevee,Twilight Masquerade,sv6,Illustration Rare,188,2024/05/24,95.16,87.99,102.69,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-188
+2026-06-22,rsv10pt5-105,Oshawott,White Flare,rsv10pt5,Illustration Rare,105,2025/07/18,93.84,90.75,102.28,490.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-105
+2026-06-22,rsv10pt5-169,Hydreigon ex,White Flare,rsv10pt5,Special Illustration Rare,169,2025/07/18,88.56,84.17,111.28,724.8,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-169
+2026-06-22,sv3pt5-166,Bulbasaur,151,sv3pt5,Illustration Rare,166,2023/09/22,87.54,74.35,96.99,437.7,https://prices.pokemontcg.io/tcgplayer/sv3pt5-166
+2026-06-22,sv1-245,Gardevoir ex,Scarlet & Violet,sv1,Special Illustration Rare,245,2023/03/31,84.52,83.99,97.61,300.0,https://prices.pokemontcg.io/tcgplayer/sv1-245
+2026-06-22,sv6pt5-78,Persian,Shrouded Fable,sv6pt5,Illustration Rare,78,2024/08/02,83.53,78.01,96.24,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-78
+2026-06-22,sv3pt5-169,Charmeleon,151,sv3pt5,Illustration Rare,169,2023/09/22,83.2,63.73,89.99,749.14,https://prices.pokemontcg.io/tcgplayer/sv3pt5-169
+2026-06-22,zsv10pt5-165,Kyurem ex,Black Bolt,zsv10pt5,Special Illustration Rare,165,2025/07/18,82.75,82.12,95.49,703.8,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-165
+2026-06-22,sv8pt5-168,Bloodmoon Ursaluna ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,168,2025/01/17,82.7,70.0,97.57,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-168
+2026-06-22,rsv10pt5-143,Zoroark,White Flare,rsv10pt5,Illustration Rare,143,2025/07/18,82.13,79.99,100.0,501.2,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-143
+2026-06-22,sv3pt5-175,Psyduck,151,sv3pt5,Illustration Rare,175,2023/09/22,80.93,66.1,88.72,5000.0,https://prices.pokemontcg.io/tcgplayer/sv3pt5-175
+2026-06-22,sv3pt5-201,Alakazam ex,151,sv3pt5,Special Illustration Rare,201,2023/09/22,80.81,70.0,88.0,698.58,https://prices.pokemontcg.io/tcgplayer/sv3pt5-201
+2026-06-22,sv2-222,Tyranitar,Paldea Evolved,sv2,Illustration Rare,222,2023/06/09,79.97,62.99,88.03,468.96,https://prices.pokemontcg.io/tcgplayer/sv2-222
+2026-06-22,sv10-193,Misty's Psyduck,Destined Rivals,sv10,Illustration Rare,193,2025/05/30,79.32,70.0,85.98,550.0,https://prices.pokemontcg.io/tcgplayer/sv10-193
+2026-06-22,sv7-169,Dachsbun ex,Stellar Crown,sv7,Special Illustration Rare,169,2024/09/13,79.04,70.0,82.52,450.0,https://prices.pokemontcg.io/tcgplayer/sv7-169
+2026-06-22,sv10-234,Team Rocket's Crobat ex,Destined Rivals,sv10,Special Illustration Rare,234,2025/05/30,78.63,74.99,90.0,643.1,https://prices.pokemontcg.io/tcgplayer/sv10-234
+2026-06-22,sv3pt5-171,Wartortle,151,sv3pt5,Illustration Rare,171,2023/09/22,77.61,59.99,79.46,320.0,https://prices.pokemontcg.io/tcgplayer/sv3pt5-171
+2026-06-22,rsv10pt5-167,Keldeo ex,White Flare,rsv10pt5,Special Illustration Rare,167,2025/07/18,77.49,70.0,84.47,556.9,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-167
+2026-06-22,sv5-211,Morty's Conviction,Temporal Forces,sv5,Special Illustration Rare,211,2024/03/22,77.32,73.0,82.06,386.6,https://prices.pokemontcg.io/tcgplayer/sv5-211
+2026-06-22,sv8pt5-157,Iron Valiant ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,157,2025/01/17,77.27,44.55,86.53,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-157
+2026-06-22,me1-184,Lillie's Determination,Mega Evolution,me1,Special Illustration Rare,184,2025/09/26,74.83,71.64,82.34,999.0,https://prices.pokemontcg.io/tcgplayer/me1-184
+2026-06-22,zsv10pt5-147,Haxorus,Black Bolt,zsv10pt5,Illustration Rare,147,2025/07/18,74.01,66.0,81.38,420.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-147
+2026-06-22,zsv10pt5-170,N's Plan,Black Bolt,zsv10pt5,Special Illustration Rare,170,2025/07/18,73.16,72.99,89.99,612.4,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-170
+2026-06-22,sv8pt5-166,Raging Bolt ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,166,2025/01/17,72.84,68.98,81.65,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-166
+2026-06-22,me1-182,Mega Kangaskhan ex,Mega Evolution,me1,Special Illustration Rare,182,2025/09/26,72.81,66.08,81.13,999.0,https://prices.pokemontcg.io/tcgplayer/me1-182
+2026-06-22,sv6-217,Carmine,Twilight Masquerade,sv6,Special Illustration Rare,217,2024/05/24,72.77,68.0,79.99,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-217
+2026-06-22,sv10-240,Team Rocket's Mewtwo ex,Destined Rivals,sv10,Hyper Rare,240,2025/05/30,72.67,69.1,79.99,595.7,https://prices.pokemontcg.io/tcgplayer/sv10-240
+2026-06-22,sv1-210,Drowzee,Scarlet & Violet,sv1,Illustration Rare,210,2023/03/31,72.3,55.0,77.76,446.38,https://prices.pokemontcg.io/tcgplayer/sv1-210
+2026-06-22,me1-180,Mega Absol ex,Mega Evolution,me1,Special Illustration Rare,180,2025/09/26,71.76,67.36,79.82,999.0,https://prices.pokemontcg.io/tcgplayer/me1-180
+2026-06-22,sv5-208,Raging Bolt ex,Temporal Forces,sv5,Special Illustration Rare,208,2024/03/22,71.6,68.0,80.0,606.6,https://prices.pokemontcg.io/tcgplayer/sv5-208
+2026-06-22,sv9-187,Salamence ex,Journey Together,sv9,Special Illustration Rare,187,2025/03/28,71.5,54.67,76.98,9999.0,https://prices.pokemontcg.io/tcgplayer/sv9-187
+2026-06-22,sv8pt5-179,Pikachu ex,Prismatic Evolutions,sv8pt5,Hyper Rare,179,2025/01/17,71.45,70.99,85.43,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-179
+2026-06-22,sv2-269,Iono,Paldea Evolved,sv2,Special Illustration Rare,269,2023/06/09,70.76,65.0,80.94,526.54,https://prices.pokemontcg.io/tcgplayer/sv2-269
+2026-06-22,rsv10pt5-103,Chandelure,White Flare,rsv10pt5,Illustration Rare,103,2025/07/18,69.98,65.99,76.96,451.5,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-103
+2026-06-22,sv6pt5-98,Basic Darkness Energy,Shrouded Fable,sv6pt5,Hyper Rare,98,2024/08/02,66.54,59.0,71.2,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-98
+2026-06-22,sv2-196,Sprigatito,Paldea Evolved,sv2,Illustration Rare,196,2023/06/09,64.48,56.3,78.09,382.27,https://prices.pokemontcg.io/tcgplayer/sv2-196
+2026-06-22,sv3pt5-176,Poliwhirl,151,sv3pt5,Illustration Rare,176,2023/09/22,63.02,50.0,64.3,361.24,https://prices.pokemontcg.io/tcgplayer/sv3pt5-176
+2026-06-22,rsv10pt5-171,Hilda,White Flare,rsv10pt5,Special Illustration Rare,171,2025/07/18,62.83,55.51,69.99,510.1,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-171
+2026-06-22,zsv10pt5-129,Dwebble,Black Bolt,zsv10pt5,Illustration Rare,129,2025/07/18,62.56,61.93,72.81,312.8,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-129
+2026-06-22,sv7-170,Terapagos ex,Stellar Crown,sv7,Special Illustration Rare,170,2024/09/13,62.52,49.95,65.45,315.6,https://prices.pokemontcg.io/tcgplayer/sv7-170
+2026-06-22,sv4-253,Altaria ex,Paradox Rift,sv4,Special Illustration Rare,253,2023/11/03,62.32,56.75,69.39,179.0,https://prices.pokemontcg.io/tcgplayer/sv4-253
+2026-06-22,sv6pt5-68,Duskull,Shrouded Fable,sv6pt5,Illustration Rare,68,2024/08/02,62.07,55.06,65.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-68
+2026-06-22,zsv10pt5-100,Volcarona,Black Bolt,zsv10pt5,Illustration Rare,100,2025/07/18,61.82,55.5,62.12,326.2,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-100
+2026-06-22,sv2-262,Tinkaton ex,Paldea Evolved,sv2,Special Illustration Rare,262,2023/06/09,61.71,54.0,67.91,308.55,https://prices.pokemontcg.io/tcgplayer/sv2-262
+2026-06-22,sv2-204,Marill,Paldea Evolved,sv2,Illustration Rare,204,2023/06/09,61.42,46.99,67.82,246.4,https://prices.pokemontcg.io/tcgplayer/sv2-204
+2026-06-22,sv5-205,Walking Wake ex,Temporal Forces,sv5,Special Illustration Rare,205,2024/03/22,60.88,58.0,72.0,335.0,https://prices.pokemontcg.io/tcgplayer/sv5-205
+2026-06-22,sv5-166,Sawsbuck,Temporal Forces,sv5,Illustration Rare,166,2024/03/22,60.69,54.0,66.72,303.45,https://prices.pokemontcg.io/tcgplayer/sv5-166
+2026-06-22,sv5-204,Gouging Fire ex,Temporal Forces,sv5,Special Illustration Rare,204,2024/03/22,60.48,57.6,61.76,100.0,https://prices.pokemontcg.io/tcgplayer/sv5-204
+2026-06-22,sv6-187,Chansey,Twilight Masquerade,sv6,Illustration Rare,187,2024/05/24,60.41,53.47,70.18,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-187
+2026-06-22,zsv10pt5-137,Krookodile,Black Bolt,zsv10pt5,Illustration Rare,137,2025/07/18,60.27,55.0,68.51,396.9,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-137
+2026-06-22,sv5-206,Iron Crown ex,Temporal Forces,sv5,Special Illustration Rare,206,2024/03/22,59.01,57.0,60.99,357.4,https://prices.pokemontcg.io/tcgplayer/sv5-206
+2026-06-22,sv3pt5-167,Ivysaur,151,sv3pt5,Illustration Rare,167,2023/09/22,58.6,49.99,64.99,458.54,https://prices.pokemontcg.io/tcgplayer/sv3pt5-167
+2026-06-22,zsv10pt5-164,Serperior ex,Black Bolt,zsv10pt5,Special Illustration Rare,164,2025/07/18,56.87,55.0,65.99,428.5,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-164
+2026-06-22,sv6pt5-66,Houndoom,Shrouded Fable,sv6pt5,Illustration Rare,66,2024/08/02,56.77,50.0,72.42,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-66
+2026-06-22,sv1-211,Ralts,Scarlet & Violet,sv1,Illustration Rare,211,2023/03/31,55.09,44.0,59.29,304.35,https://prices.pokemontcg.io/tcgplayer/sv1-211
+2026-06-22,sv3pt5-181,Dragonair,151,sv3pt5,Illustration Rare,181,2023/09/22,54.72,45.0,57.5,1700.0,https://prices.pokemontcg.io/tcgplayer/sv3pt5-181
+2026-06-22,sv2-201,Fuecoco,Paldea Evolved,sv2,Illustration Rare,201,2023/06/09,54.48,49.54,63.44,99.0,https://prices.pokemontcg.io/tcgplayer/sv2-201
+2026-06-22,sv2-259,Chi-Yu ex,Paldea Evolved,sv2,Special Illustration Rare,259,2023/06/09,53.83,53.99,60.5,379.62,https://prices.pokemontcg.io/tcgplayer/sv2-259
+2026-06-22,sv8pt5-164,Gholdengo ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,164,2025/01/17,53.73,46.0,64.87,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-164
+2026-06-22,rsv10pt5-142,Zorua,White Flare,rsv10pt5,Illustration Rare,142,2025/07/18,53.73,51.18,55.58,259.8,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-142
+2026-06-22,sv1-212,Kirlia,Scarlet & Violet,sv1,Illustration Rare,212,2023/03/31,53.59,43.0,59.72,5000.0,https://prices.pokemontcg.io/tcgplayer/sv1-212
+2026-06-22,sv9-185,N's Zoroark ex,Journey Together,sv9,Special Illustration Rare,185,2025/03/28,53.28,48.67,58.0,531.2,https://prices.pokemontcg.io/tcgplayer/sv9-185
+2026-06-22,zsv10pt5-92,Lilligant,Black Bolt,zsv10pt5,Illustration Rare,92,2025/07/18,52.96,51.99,60.5,282.4,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-92
+2026-06-22,sv6pt5-69,Dusclops,Shrouded Fable,sv6pt5,Illustration Rare,69,2024/08/02,51.77,46.6,55.29,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-69
+2026-06-22,rsv10pt5-137,Liepard,White Flare,rsv10pt5,Illustration Rare,137,2025/07/18,51.72,49.0,61.49,290.1,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-137
+2026-06-22,sv6pt5-67,Horsea,Shrouded Fable,sv6pt5,Illustration Rare,67,2024/08/02,51.71,46.0,58.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-67
+2026-06-22,sv4-194,Minun,Paradox Rift,sv4,Illustration Rare,194,2023/11/03,51.09,39.49,57.53,150.0,https://prices.pokemontcg.io/tcgplayer/sv4-194
+2026-06-22,sv4-193,Plusle,Paradox Rift,sv4,Illustration Rare,193,2023/11/03,50.92,44.82,56.99,341.61,https://prices.pokemontcg.io/tcgplayer/sv4-193
+2026-06-22,rsv10pt5-107,Samurott,White Flare,rsv10pt5,Illustration Rare,107,2025/07/18,50.77,47.99,58.73,421.8,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-107
+2026-06-22,sv1-204,Slowpoke,Scarlet & Violet,sv1,Illustration Rare,204,2023/03/31,49.14,41.0,55.23,234.56,https://prices.pokemontcg.io/tcgplayer/sv1-204
+2026-06-22,sv10-236,Ethan's Adventure,Destined Rivals,sv10,Special Illustration Rare,236,2025/05/30,48.85,45.0,52.13,9999.0,https://prices.pokemontcg.io/tcgplayer/sv10-236
+2026-06-22,sv3-199,Ninetales,Obsidian Flames,sv3,Illustration Rare,199,2023/08/11,48.81,39.0,51.45,243.15,https://prices.pokemontcg.io/tcgplayer/sv3-199
+2026-06-22,zsv10pt5-96,Amoonguss,Black Bolt,zsv10pt5,Illustration Rare,96,2025/07/18,48.22,39.99,58.25,94.99,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-96
+2026-06-22,sv8pt5-151,Palafin ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,151,2025/01/17,48.18,42.0,54.59,9999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-151
+2026-06-22,zsv10pt5-169,Genesect ex,Black Bolt,zsv10pt5,Special Illustration Rare,169,2025/07/18,47.82,43.0,54.95,409.9,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-169
+2026-06-22,sv6-216,Bloodmoon Ursaluna ex,Twilight Masquerade,sv6,Special Illustration Rare,216,2024/05/24,47.75,42.95,50.96,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-216
+2026-06-22,sv5-183,Cinccino,Temporal Forces,sv5,Illustration Rare,183,2024/03/22,46.75,36.0,60.0,1000.0,https://prices.pokemontcg.io/tcgplayer/sv5-183
+2026-06-22,sv5-165,Deerling,Temporal Forces,sv5,Illustration Rare,165,2024/03/22,46.7,42.99,54.31,2000.0,https://prices.pokemontcg.io/tcgplayer/sv5-165
+2026-06-22,rsv10pt5-98,Emboar,White Flare,rsv10pt5,Illustration Rare,98,2025/07/18,46.45,42.99,52.47,319.2,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-98
+2026-06-22,sv4-206,Morpeko,Paradox Rift,sv4,Illustration Rare,206,2023/11/03,46.44,38.5,58.43,262.47,https://prices.pokemontcg.io/tcgplayer/sv4-206
+2026-06-22,sv3-228,Charizard ex,Obsidian Flames,sv3,Hyper Rare,228,2023/08/11,45.54,34.63,49.97,252.0,https://prices.pokemontcg.io/tcgplayer/sv3-228
+2026-06-22,sv9-183,Iono's Bellibolt ex,Journey Together,sv9,Special Illustration Rare,183,2025/03/28,45.35,38.0,49.56,9999.0,https://prices.pokemontcg.io/tcgplayer/sv9-183
+2026-06-22,sv6pt5-92,Fezandipiti ex,Shrouded Fable,sv6pt5,Special Illustration Rare,92,2024/08/02,45.31,40.68,47.99,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-92
+2026-06-22,rsv10pt5-113,Vanilluxe,White Flare,rsv10pt5,Illustration Rare,113,2025/07/18,45.06,42.0,48.77,321.6,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-113
+2026-06-22,sv3-202,Cleffa,Obsidian Flames,sv3,Illustration Rare,202,2023/08/11,44.55,36.0,47.63,353.0,https://prices.pokemontcg.io/tcgplayer/sv3-202
+2026-06-22,sv2-212,Mismagius,Paldea Evolved,sv2,Illustration Rare,212,2023/06/09,44.33,38.68,48.88,770.0,https://prices.pokemontcg.io/tcgplayer/sv2-212
+2026-06-22,sv6pt5-72,Munkidori,Shrouded Fable,sv6pt5,Illustration Rare,72,2024/08/02,44.0,39.13,47.96,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-72
+2026-06-22,zsv10pt5-167,Meloetta ex,Black Bolt,zsv10pt5,Special Illustration Rare,167,2025/07/18,43.96,41.78,48.76,363.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-167
+2026-06-22,sv8-240,Hydreigon ex,Surging Sparks,sv8,Special Illustration Rare,240,2024/11/08,43.58,37.08,47.72,394.0,https://prices.pokemontcg.io/tcgplayer/sv8-240
+2026-06-22,sv10-194,Misty's Lapras,Destined Rivals,sv10,Illustration Rare,194,2025/05/30,42.61,37.7,47.31,219.5,https://prices.pokemontcg.io/tcgplayer/sv10-194
+2026-06-22,sv4-208,Steelix,Paradox Rift,sv4,Illustration Rare,208,2023/11/03,42.5,39.43,49.25,280.96,https://prices.pokemontcg.io/tcgplayer/sv4-208
+2026-06-22,sv5-167,Litten,Temporal Forces,sv5,Illustration Rare,167,2024/03/22,42.39,34.19,44.12,211.95,https://prices.pokemontcg.io/tcgplayer/sv5-167
+2026-06-22,sv1-215,Riolu,Scarlet & Violet,sv1,Illustration Rare,215,2023/03/31,42.39,35.49,46.22,210.9,https://prices.pokemontcg.io/tcgplayer/sv1-215
+2026-06-22,sv2-210,Baxcalibur,Paldea Evolved,sv2,Illustration Rare,210,2023/06/09,42.38,38.62,47.64,208.1,https://prices.pokemontcg.io/tcgplayer/sv2-210
+2026-06-22,zsv10pt5-127,Conkeldurr,Black Bolt,zsv10pt5,Illustration Rare,127,2025/07/18,42.35,37.24,52.8,199.9,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-127
+2026-06-22,sv6pt5-94,Cassiopeia,Shrouded Fable,sv6pt5,Special Illustration Rare,94,2024/08/02,42.2,40.99,50.88,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-94
+2026-06-22,sv5-203,Iron Leaves ex,Temporal Forces,sv5,Special Illustration Rare,203,2024/03/22,42.17,38.0,43.62,100.0,https://prices.pokemontcg.io/tcgplayer/sv5-203
+2026-06-22,rsv10pt5-89,Leavanny,White Flare,rsv10pt5,Illustration Rare,89,2025/07/18,41.93,39.95,48.0,223.4,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-89
+2026-06-22,rsv10pt5-92,Sawsbuck,White Flare,rsv10pt5,Illustration Rare,92,2025/07/18,41.75,38.5,42.74,89.99,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-92
+2026-06-22,sv8pt5-171,Crispin,Prismatic Evolutions,sv8pt5,Special Illustration Rare,171,2025/01/17,41.47,39.1,47.92,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-171
+2026-06-22,sv4-251,Roaring Moon ex,Paradox Rift,sv4,Special Illustration Rare,251,2023/11/03,41.36,38.93,46.0,117.58,https://prices.pokemontcg.io/tcgplayer/sv4-251
+2026-06-22,zsv10pt5-151,Audino,Black Bolt,zsv10pt5,Illustration Rare,151,2025/07/18,41.36,41.34,49.99,249.9,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-151
+2026-06-22,sv8-203,Latios,Surging Sparks,sv8,Illustration Rare,203,2024/11/08,40.44,29.83,42.45,261.0,https://prices.pokemontcg.io/tcgplayer/sv8-203
+2026-06-22,sv4-189,Mantyke,Paradox Rift,sv4,Illustration Rare,189,2023/11/03,40.28,30.83,42.5,279.41,https://prices.pokemontcg.io/tcgplayer/sv4-189
+2026-06-22,sv4-252,Gholdengo ex,Paradox Rift,sv4,Special Illustration Rare,252,2023/11/03,40.19,34.89,42.1,198.34,https://prices.pokemontcg.io/tcgplayer/sv4-252
+2026-06-22,sv8pt5-169,Terapagos ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,169,2025/01/17,39.61,33.0,46.15,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-169
+2026-06-22,sv7-167,Hydrapple ex,Stellar Crown,sv7,Special Illustration Rare,167,2024/09/13,39.59,36.75,43.56,212.1,https://prices.pokemontcg.io/tcgplayer/sv7-167
+2026-06-22,sv6-219,Lana's Aid,Twilight Masquerade,sv6,Special Illustration Rare,219,2024/05/24,39.56,36.76,44.01,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-219
+2026-06-22,sv2-258,Skeledirge ex,Paldea Evolved,sv2,Special Illustration Rare,258,2023/06/09,39.22,29.15,43.99,314.46,https://prices.pokemontcg.io/tcgplayer/sv2-258
+2026-06-22,sv5-178,Metagross,Temporal Forces,sv5,Illustration Rare,178,2024/03/22,39.07,32.9,43.69,89.99,https://prices.pokemontcg.io/tcgplayer/sv5-178
+2026-06-22,sv4-245,Garchomp ex,Paradox Rift,sv4,Special Illustration Rare,245,2023/11/03,38.73,36.3,43.34,100.0,https://prices.pokemontcg.io/tcgplayer/sv4-245
+2026-06-22,sv8pt5-158,Iron Crown ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,158,2025/01/17,38.55,34.99,42.61,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-158
+2026-06-22,sv8-236,Durant ex,Surging Sparks,sv8,Special Illustration Rare,236,2024/11/08,38.43,30.21,45.32,269.9,https://prices.pokemontcg.io/tcgplayer/sv8-236
+2026-06-22,sv2-217,Tinkatuff,Paldea Evolved,sv2,Illustration Rare,217,2023/06/09,38.35,31.31,45.36,345.1,https://prices.pokemontcg.io/tcgplayer/sv2-217
+2026-06-22,rsv10pt5-116,Joltik,White Flare,rsv10pt5,Illustration Rare,116,2025/07/18,37.98,37.0,41.78,219.52,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-116
+2026-06-22,zsv10pt5-106,Tirtouga,Black Bolt,zsv10pt5,Illustration Rare,106,2025/07/18,37.84,35.95,40.0,170.2,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-106
+2026-06-22,sv8pt5-154,Iron Hands ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,154,2025/01/17,37.62,34.0,41.39,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-154
+2026-06-22,sv9-186,Hop's Zacian ex,Journey Together,sv9,Special Illustration Rare,186,2025/03/28,37.43,35.0,41.29,9999.0,https://prices.pokemontcg.io/tcgplayer/sv9-186
+2026-06-22,rsv10pt5-154,Lillipup,White Flare,rsv10pt5,Illustration Rare,154,2025/07/18,37.09,34.0,43.43,213.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-154
+2026-06-22,sv6pt5-99,Basic Metal Energy,Shrouded Fable,sv6pt5,Hyper Rare,99,2024/08/02,37.07,34.99,40.52,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-99
+2026-06-22,sv2-256,Meowscarada ex,Paldea Evolved,sv2,Special Illustration Rare,256,2023/06/09,37.06,32.07,40.26,274.88,https://prices.pokemontcg.io/tcgplayer/sv2-256
+2026-06-22,sv4-205,Yveltal,Paradox Rift,sv4,Illustration Rare,205,2023/11/03,36.62,24.99,39.95,59.99,https://prices.pokemontcg.io/tcgplayer/sv4-205
+2026-06-22,sv10-238,Team Rocket's Giovanni,Destined Rivals,sv10,Special Illustration Rare,238,2025/05/30,36.15,33.49,40.41,334.9,https://prices.pokemontcg.io/tcgplayer/sv10-238
+2026-06-22,rsv10pt5-156,Stoutland,White Flare,rsv10pt5,Illustration Rare,156,2025/07/18,36.13,20.99,42.99,209.9,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-156
+2026-06-22,sv6pt5-70,Dusknoir,Shrouded Fable,sv6pt5,Illustration Rare,70,2024/08/02,35.91,31.62,39.46,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-70
+2026-06-22,sv5-184,Drampa,Temporal Forces,sv5,Illustration Rare,184,2024/03/22,35.5,30.0,40.0,139.43,https://prices.pokemontcg.io/tcgplayer/sv5-184
+2026-06-22,zsv10pt5-148,Pidove,Black Bolt,zsv10pt5,Illustration Rare,148,2025/07/18,35.34,27.55,32.5,158.9,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-148
+2026-06-22,me1-183,Acerola's Mischief,Mega Evolution,me1,Special Illustration Rare,183,2025/09/26,35.28,34.99,40.07,999.0,https://prices.pokemontcg.io/tcgplayer/me1-183
+2026-06-22,sv8-242,Alolan Exeggutor ex,Surging Sparks,sv8,Special Illustration Rare,242,2024/11/08,35.06,28.0,38.96,284.4,https://prices.pokemontcg.io/tcgplayer/sv8-242
+2026-06-22,rsv10pt5-96,Tepig,White Flare,rsv10pt5,Illustration Rare,96,2025/07/18,34.95,33.9,41.94,224.9,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-96
+2026-06-22,sv10-190,Ethan's Typhlosion,Destined Rivals,sv10,Illustration Rare,190,2025/05/30,34.87,29.37,37.87,9999.0,https://prices.pokemontcg.io/tcgplayer/sv10-190
+2026-06-22,zsv10pt5-91,Petilil,Black Bolt,zsv10pt5,Illustration Rare,91,2025/07/18,34.82,33.0,37.95,141.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-91
+2026-06-22,zsv10pt5-118,Solosis,Black Bolt,zsv10pt5,Illustration Rare,118,2025/07/18,34.72,34.99,45.0,215.3,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-118
+2026-06-22,sv3pt5-205,Mew ex,151,sv3pt5,Hyper Rare,205,2023/09/22,34.71,27.12,37.82,149.25,https://prices.pokemontcg.io/tcgplayer/sv3pt5-205
+2026-06-22,sv10-241,Cynthia's Garchomp ex,Destined Rivals,sv10,Hyper Rare,241,2025/05/30,34.38,32.99,37.99,306.4,https://prices.pokemontcg.io/tcgplayer/sv10-241
+2026-06-22,sv6-218,Kieran,Twilight Masquerade,sv6,Special Illustration Rare,218,2024/05/24,34.25,30.0,37.74,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-218
+2026-06-22,sv6-181,Hisuian Growlithe,Twilight Masquerade,sv6,Illustration Rare,181,2024/05/24,34.23,29.65,38.26,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-181
+2026-06-22,sv2-194,Heracross,Paldea Evolved,sv2,Illustration Rare,194,2023/06/09,34.18,29.99,39.79,183.4,https://prices.pokemontcg.io/tcgplayer/sv2-194
+2026-06-22,sv6pt5-79,Bewear,Shrouded Fable,sv6pt5,Illustration Rare,79,2024/08/02,33.88,28.5,37.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-79
+2026-06-22,zsv10pt5-144,Cobalion,Black Bolt,zsv10pt5,Illustration Rare,144,2025/07/18,33.83,31.48,51.74,207.6,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-144
+2026-06-22,sv4-211,Aipom,Paradox Rift,sv4,Illustration Rare,211,2023/11/03,33.81,29.88,35.99,89.49,https://prices.pokemontcg.io/tcgplayer/sv4-211
+2026-06-22,sv6-210,Sinistcha ex,Twilight Masquerade,sv6,Special Illustration Rare,210,2024/05/24,33.73,25.0,39.99,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-210
+2026-06-22,rsv10pt5-109,Ducklett,White Flare,rsv10pt5,Illustration Rare,109,2025/07/18,33.52,35.0,45.62,162.6,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-109
+2026-06-22,sv8pt5-163,Pecharunt ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,163,2025/01/17,33.32,27.99,36.27,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-163
+2026-06-22,zsv10pt5-150,Unfezant,Black Bolt,zsv10pt5,Illustration Rare,150,2025/07/18,33.32,33.0,42.0,182.71,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-150
+2026-06-22,sv10-235,Arven's Mabosstiff ex,Destined Rivals,sv10,Special Illustration Rare,235,2025/05/30,33.22,28.99,36.13,298.99,https://prices.pokemontcg.io/tcgplayer/sv10-235
+2026-06-22,sv5-176,Arbok,Temporal Forces,sv5,Illustration Rare,176,2024/03/22,32.98,24.89,37.0,180.44,https://prices.pokemontcg.io/tcgplayer/sv5-176
+2026-06-22,sv5-180,Lickitung,Temporal Forces,sv5,Illustration Rare,180,2024/03/22,32.94,29.99,37.15,177.9,https://prices.pokemontcg.io/tcgplayer/sv5-180
+2026-06-22,zsv10pt5-115,Eelektross,Black Bolt,zsv10pt5,Illustration Rare,115,2025/07/18,32.91,31.0,36.35,181.9,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-115
+2026-06-22,sv8-246,Lisia's Appeal,Surging Sparks,sv8,Special Illustration Rare,246,2024/11/08,32.68,28.69,35.65,269.9,https://prices.pokemontcg.io/tcgplayer/sv8-246
+2026-06-22,rsv10pt5-95,Virizion,White Flare,rsv10pt5,Illustration Rare,95,2025/07/18,32.39,30.0,35.34,257.3,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-95
+2026-06-22,sv2-216,Tinkatink,Paldea Evolved,sv2,Illustration Rare,216,2023/06/09,32.29,26.22,36.0,100.0,https://prices.pokemontcg.io/tcgplayer/sv2-216
+2026-06-22,sv10-203,Team Rocket's Meowth,Destined Rivals,sv10,Illustration Rare,203,2025/05/30,32.21,27.99,34.99,236.42,https://prices.pokemontcg.io/tcgplayer/sv10-203
+2026-06-22,sv2-219,Sudowoodo,Paldea Evolved,sv2,Illustration Rare,219,2023/06/09,32.02,30.0,37.42,77.0,https://prices.pokemontcg.io/tcgplayer/sv2-219
+2026-06-22,zsv10pt5-87,Snivy,Black Bolt,zsv10pt5,Illustration Rare,87,2025/07/18,31.91,31.49,39.74,210.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-87
+2026-06-22,zsv10pt5-153,Cinccino,Black Bolt,zsv10pt5,Illustration Rare,153,2025/07/18,31.83,22.76,36.65,146.49,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-153
+2026-06-22,sv4pt5-237,Iono,Paldean Fates,sv4pt5,Special Illustration Rare,237,2024/01/26,31.51,28.99,33.57,157.55,https://prices.pokemontcg.io/tcgplayer/sv4pt5-237
+2026-06-22,sv10-239,Ethan's Ho-Oh ex,Destined Rivals,sv10,Hyper Rare,239,2025/05/30,31.28,27.35,32.0,9999.0,https://prices.pokemontcg.io/tcgplayer/sv10-239
+2026-06-22,zsv10pt5-89,Pansage,Black Bolt,zsv10pt5,Illustration Rare,89,2025/07/18,31.03,24.0,33.16,115.1,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-89
+2026-06-22,sv4-213,Swablu,Paradox Rift,sv4,Illustration Rare,213,2023/11/03,31.0,29.95,33.58,192.26,https://prices.pokemontcg.io/tcgplayer/sv4-213
+2026-06-22,sv3-198,Gloom,Obsidian Flames,sv3,Illustration Rare,198,2023/08/11,30.97,22.0,30.95,96.95,https://prices.pokemontcg.io/tcgplayer/sv3-198
+2026-06-22,me2-129,Dawn,Phantasmal Flames,me2,Special Illustration Rare,129,2025/11/14,30.71,27.0,33.0,999.0,https://prices.pokemontcg.io/tcgplayer/me2-129
+2026-06-22,zsv10pt5-131,Landorus,Black Bolt,zsv10pt5,Illustration Rare,131,2025/07/18,30.71,29.51,39.37,219.5,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-131
+2026-06-22,zsv10pt5-134,Scolipede,Black Bolt,zsv10pt5,Illustration Rare,134,2025/07/18,30.69,30.0,37.41,75.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-134
+2026-06-22,sv2-261,Chien-Pao ex,Paldea Evolved,sv2,Special Illustration Rare,261,2023/06/09,30.6,27.99,34.96,197.11,https://prices.pokemontcg.io/tcgplayer/sv2-261
+2026-06-22,sv4pt5-236,Clive,Paldean Fates,sv4pt5,Special Illustration Rare,236,2024/01/26,30.55,28.0,34.32,166.6,https://prices.pokemontcg.io/tcgplayer/sv4pt5-236
+2026-06-22,rsv10pt5-168,Jellicent ex,White Flare,rsv10pt5,Special Illustration Rare,168,2025/07/18,30.54,26.24,35.21,271.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-168
+2026-06-22,zsv10pt5-141,Klinklang,Black Bolt,zsv10pt5,Illustration Rare,141,2025/07/18,30.53,30.0,34.38,50.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-141
+2026-06-22,rsv10pt5-115,Zebstrika,White Flare,rsv10pt5,Illustration Rare,115,2025/07/18,29.88,30.0,35.75,189.69,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-115
+2026-06-22,rsv10pt5-165,Whimsicott ex,White Flare,rsv10pt5,Special Illustration Rare,165,2025/07/18,29.8,29.55,36.03,219.5,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-165
+2026-06-22,sv6pt5-71,Cresselia,Shrouded Fable,sv6pt5,Illustration Rare,71,2024/08/02,29.77,27.35,35.13,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-71
+2026-06-22,sv1-206,Wiglett,Scarlet & Violet,sv1,Illustration Rare,206,2023/03/31,29.72,11.5,33.31,97.73,https://prices.pokemontcg.io/tcgplayer/sv1-206
+2026-06-22,sv5-209,Bianca's Devotion,Temporal Forces,sv5,Special Illustration Rare,209,2024/03/22,29.65,26.16,32.52,146.95,https://prices.pokemontcg.io/tcgplayer/sv5-209
+2026-06-22,sv1-251,Miriam,Scarlet & Violet,sv1,Special Illustration Rare,251,2023/03/31,29.55,24.49,32.94,1500.0,https://prices.pokemontcg.io/tcgplayer/sv1-251
+2026-06-22,sv5-182,Minccino,Temporal Forces,sv5,Illustration Rare,182,2024/03/22,29.52,22.22,32.35,1000.0,https://prices.pokemontcg.io/tcgplayer/sv5-182
+2026-06-22,sv1-244,Miraidon ex,Scarlet & Violet,sv1,Special Illustration Rare,244,2023/03/31,29.36,22.0,32.72,210.64,https://prices.pokemontcg.io/tcgplayer/sv1-244
+2026-06-22,sv10-237,Team Rocket's Ariana,Destined Rivals,sv10,Special Illustration Rare,237,2025/05/30,29.33,25.91,31.56,292.5,https://prices.pokemontcg.io/tcgplayer/sv10-237
+2026-06-22,rsv10pt5-135,Terrakion,White Flare,rsv10pt5,Illustration Rare,135,2025/07/18,29.08,28.0,35.68,205.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-135
+2026-06-22,sv4-196,Joltik,Paradox Rift,sv4,Illustration Rare,196,2023/11/03,28.88,28.88,38.21,149.7,https://prices.pokemontcg.io/tcgplayer/sv4-196
+2026-06-22,sv6-211,Teal Mask Ogerpon ex,Twilight Masquerade,sv6,Special Illustration Rare,211,2024/05/24,28.83,22.07,30.76,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-211
+2026-06-22,sv8pt5-175,Lacey,Prismatic Evolutions,sv8pt5,Special Illustration Rare,175,2025/01/17,28.81,26.0,31.99,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-175
+2026-06-22,rsv10pt5-151,Druddigon,White Flare,rsv10pt5,Illustration Rare,151,2025/07/18,28.77,29.43,33.83,128.26,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-151
+2026-06-22,sv5-207,Iron Boulder ex,Temporal Forces,sv5,Special Illustration Rare,207,2024/03/22,28.4,24.15,29.0,162.2,https://prices.pokemontcg.io/tcgplayer/sv5-207
+2026-06-22,sv3pt5-177,Machoke,151,sv3pt5,Illustration Rare,177,2023/09/22,28.17,20.01,29.72,250.0,https://prices.pokemontcg.io/tcgplayer/sv3pt5-177
+2026-06-22,sv8pt5-159,Sandy Shocks ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,159,2025/01/17,28.15,24.0,30.68,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-159
+2026-06-22,zsv10pt5-146,Fraxure,Black Bolt,zsv10pt5,Illustration Rare,146,2025/07/18,27.79,26.0,30.8,201.5,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-146
+2026-06-22,sv10-228,Yanmega ex,Destined Rivals,sv10,Special Illustration Rare,228,2025/05/30,27.74,22.81,30.02,9999.0,https://prices.pokemontcg.io/tcgplayer/sv10-228
+2026-06-22,sv9-161,Articuno,Journey Together,sv9,Illustration Rare,161,2025/03/28,27.62,23.13,30.0,166.3,https://prices.pokemontcg.io/tcgplayer/sv9-161
+2026-06-22,sv8pt5-173,Janine's Secret Art,Prismatic Evolutions,sv8pt5,Special Illustration Rare,173,2025/01/17,27.42,25.86,31.53,9999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-173
+2026-06-22,zsv10pt5-108,Alomomola,Black Bolt,zsv10pt5,Illustration Rare,108,2025/07/18,27.13,26.85,30.99,133.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-108
+2026-06-22,sv4-246,Golisopod ex,Paradox Rift,sv4,Special Illustration Rare,246,2023/11/03,26.8,25.0,29.03,181.22,https://prices.pokemontcg.io/tcgplayer/sv4-246
+2026-06-22,sv4-201,Minior,Paradox Rift,sv4,Illustration Rare,201,2023/11/03,26.74,23.99,28.36,40.28,https://prices.pokemontcg.io/tcgplayer/sv4-201
+2026-06-22,rsv10pt5-101,Litwick,White Flare,rsv10pt5,Illustration Rare,101,2025/07/18,26.72,24.99,31.77,169.52,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-101
+2026-06-22,sv6pt5-75,Zorua,Shrouded Fable,sv6pt5,Illustration Rare,75,2024/08/02,26.36,19.99,30.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-75
+2026-06-22,sv8-197,Ceruledge,Surging Sparks,sv8,Illustration Rare,197,2024/11/08,25.65,21.01,27.5,165.0,https://prices.pokemontcg.io/tcgplayer/sv8-197
+2026-06-22,sv1-214,Greavard,Scarlet & Violet,sv1,Illustration Rare,214,2023/03/31,25.58,21.45,29.32,500.0,https://prices.pokemontcg.io/tcgplayer/sv1-214
+2026-06-22,me1-133,Bulbasaur,Mega Evolution,me1,Illustration Rare,133,2025/09/26,25.55,21.99,27.44,999.0,https://prices.pokemontcg.io/tcgplayer/me1-133
+2026-06-22,sv6pt5-93,Pecharunt ex,Shrouded Fable,sv6pt5,Special Illustration Rare,93,2024/08/02,25.42,22.18,28.39,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-93
+2026-06-22,rsv10pt5-123,Cofagrigus,White Flare,rsv10pt5,Illustration Rare,123,2025/07/18,25.33,25.0,31.0,197.4,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-123
+2026-06-22,sv1-213,Fidough,Scarlet & Violet,sv1,Illustration Rare,213,2023/03/31,25.27,20.0,30.0,338.43,https://prices.pokemontcg.io/tcgplayer/sv1-213
+2026-06-22,rsv10pt5-139,Scrafty,White Flare,rsv10pt5,Illustration Rare,139,2025/07/18,25.25,20.0,35.49,208.5,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-139
+2026-06-22,zsv10pt5-152,Minccino,Black Bolt,zsv10pt5,Illustration Rare,152,2025/07/18,25.24,22.0,28.99,144.79,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-152
+2026-06-22,zsv10pt5-168,Excadrill ex,Black Bolt,zsv10pt5,Special Illustration Rare,168,2025/07/18,25.01,23.0,29.99,190.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-168
+2026-06-22,me2-106,Meowth,Phantasmal Flames,me2,Illustration Rare,106,2025/11/14,24.64,21.66,28.2,999.0,https://prices.pokemontcg.io/tcgplayer/me2-106
+2026-06-22,sv3-225,Pidgeot ex,Obsidian Flames,sv3,Special Illustration Rare,225,2023/08/11,24.63,18.01,25.99,75.0,https://prices.pokemontcg.io/tcgplayer/sv3-225
+2026-06-22,sv2-208,Frigibax,Paldea Evolved,sv2,Illustration Rare,208,2023/06/09,24.63,20.0,28.66,130.87,https://prices.pokemontcg.io/tcgplayer/sv2-208
+2026-06-22,sv8-245,Jasmine's Gaze,Surging Sparks,sv8,Special Illustration Rare,245,2024/11/08,24.61,19.5,25.9,200.9,https://prices.pokemontcg.io/tcgplayer/sv8-245
+2026-06-22,rsv10pt5-124,Gothita,White Flare,rsv10pt5,Illustration Rare,124,2025/07/18,24.41,23.16,27.96,183.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-124
+2026-06-22,sv8pt5-145,Teal Mask Ogerpon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,145,2025/01/17,24.39,21.69,26.83,9999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-145
+2026-06-22,sv5-171,Reuniclus,Temporal Forces,sv5,Illustration Rare,171,2024/03/22,24.37,8.5,27.52,49.87,https://prices.pokemontcg.io/tcgplayer/sv5-171
+2026-06-22,me1-134,Ivysaur,Mega Evolution,me1,Illustration Rare,134,2025/09/26,24.32,20.99,25.0,999.0,https://prices.pokemontcg.io/tcgplayer/me1-134
+2026-06-22,me1-186,Wally's Compassion,Mega Evolution,me1,Special Illustration Rare,186,2025/09/26,24.29,21.37,27.51,999.0,https://prices.pokemontcg.io/tcgplayer/me1-186
+2026-06-22,me2-127,Mega Sharpedo ex,Phantasmal Flames,me2,Special Illustration Rare,127,2025/11/14,23.74,20.0,26.92,999.0,https://prices.pokemontcg.io/tcgplayer/me2-127
+2026-06-22,sv1-247,Koraidon ex,Scarlet & Violet,sv1,Special Illustration Rare,247,2023/03/31,23.69,19.65,26.71,164.7,https://prices.pokemontcg.io/tcgplayer/sv1-247
+2026-06-22,sv4-249,Iron Valiant ex,Paradox Rift,sv4,Special Illustration Rare,249,2023/11/03,23.66,20.0,26.97,184.47,https://prices.pokemontcg.io/tcgplayer/sv4-249
+2026-06-22,sv7-168,Galvantula ex,Stellar Crown,sv7,Special Illustration Rare,168,2024/09/13,23.45,16.0,24.99,143.3,https://prices.pokemontcg.io/tcgplayer/sv7-168
+2026-06-22,sv6pt5-95,Pecharunt ex,Shrouded Fable,sv6pt5,Hyper Rare,95,2024/08/02,23.39,18.5,24.09,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-95
+2026-06-22,sv2-197,Floragato,Paldea Evolved,sv2,Illustration Rare,197,2023/06/09,23.38,17.65,24.99,144.72,https://prices.pokemontcg.io/tcgplayer/sv2-197
+2026-06-22,rsv10pt5-138,Scraggy,White Flare,rsv10pt5,Illustration Rare,138,2025/07/18,23.36,20.0,26.0,999.99,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-138
+2026-06-22,sv6-186,Tatsugiri,Twilight Masquerade,sv6,Illustration Rare,186,2024/05/24,22.53,19.94,25.83,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-186
+2026-06-22,rsv10pt5-141,Garbodor,White Flare,rsv10pt5,Illustration Rare,141,2025/07/18,22.49,19.0,23.76,150.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-141
+2026-06-22,sv3pt5-174,Nidoking,151,sv3pt5,Illustration Rare,174,2023/09/22,22.46,18.39,24.73,199.4,https://prices.pokemontcg.io/tcgplayer/sv3pt5-174
+2026-06-22,sv4-186,Magby,Paradox Rift,sv4,Illustration Rare,186,2023/11/03,22.26,18.89,25.33,177.91,https://prices.pokemontcg.io/tcgplayer/sv4-186
+2026-06-22,sv7-172,Lacey,Stellar Crown,sv7,Special Illustration Rare,172,2024/09/13,22.22,16.0,21.19,167.6,https://prices.pokemontcg.io/tcgplayer/sv7-172
+2026-06-22,sv9-182,Volcanion ex,Journey Together,sv9,Special Illustration Rare,182,2025/03/28,22.13,20.0,24.22,203.9,https://prices.pokemontcg.io/tcgplayer/sv9-182
+2026-06-22,sv4-247,Tapu Koko ex,Paradox Rift,sv4,Special Illustration Rare,247,2023/11/03,22.01,19.99,24.1,74.99,https://prices.pokemontcg.io/tcgplayer/sv4-247
+2026-06-22,rsv10pt5-106,Dewott,White Flare,rsv10pt5,Illustration Rare,106,2025/07/18,22.01,16.12,24.76,151.3,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-106
+2026-06-22,sv2-202,Crocalor,Paldea Evolved,sv2,Illustration Rare,202,2023/06/09,21.93,18.0,22.26,126.66,https://prices.pokemontcg.io/tcgplayer/sv2-202
+2026-06-22,sv6pt5-90,Okidogi ex,Shrouded Fable,sv6pt5,Special Illustration Rare,90,2024/08/02,21.9,17.0,23.91,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-90
+2026-06-22,zsv10pt5-112,Emolga,Black Bolt,zsv10pt5,Illustration Rare,112,2025/07/18,21.82,20.38,27.1,118.2,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-112
+2026-06-22,zsv10pt5-114,Eelektrik,Black Bolt,zsv10pt5,Illustration Rare,114,2025/07/18,21.78,20.69,25.0,191.62,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-114
+2026-06-22,zsv10pt5-145,Axew,Black Bolt,zsv10pt5,Illustration Rare,145,2025/07/18,21.75,19.18,25.01,137.8,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-145
+2026-06-22,sv3pt5-203,Erika's Invitation,151,sv3pt5,Special Illustration Rare,203,2023/09/22,21.71,18.99,23.99,180.0,https://prices.pokemontcg.io/tcgplayer/sv3pt5-203
+2026-06-22,sv6pt5-97,Powerglass,Shrouded Fable,sv6pt5,Hyper Rare,97,2024/08/02,21.68,19.25,24.95,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-97
+2026-06-22,sv2-205,Eiscue,Paldea Evolved,sv2,Illustration Rare,205,2023/06/09,21.68,18.0,24.49,153.8,https://prices.pokemontcg.io/tcgplayer/sv2-205
+2026-06-22,sv3-207,Pidgey,Obsidian Flames,sv3,Illustration Rare,207,2023/08/11,21.63,16.25,22.34,110.58,https://prices.pokemontcg.io/tcgplayer/sv3-207
+2026-06-22,zsv10pt5-125,Timburr,Black Bolt,zsv10pt5,Illustration Rare,125,2025/07/18,21.6,19.99,26.0,104.9,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-125
+2026-06-22,sv2-209,Arctibax,Paldea Evolved,sv2,Illustration Rare,209,2023/06/09,21.6,10.0,25.0,108.0,https://prices.pokemontcg.io/tcgplayer/sv2-209
+2026-06-22,sv3pt5-178,Tangela,151,sv3pt5,Illustration Rare,178,2023/09/22,21.51,16.23,22.99,142.48,https://prices.pokemontcg.io/tcgplayer/sv3pt5-178
+2026-06-22,sv2-206,Quaxly,Paldea Evolved,sv2,Illustration Rare,206,2023/06/09,21.37,19.94,24.41,102.7,https://prices.pokemontcg.io/tcgplayer/sv2-206
+2026-06-22,sv3pt5-172,Caterpie,151,sv3pt5,Illustration Rare,172,2023/09/22,21.32,15.0,22.97,1000.0,https://prices.pokemontcg.io/tcgplayer/sv3pt5-172
+2026-06-22,zsv10pt5-94,Karrablast,Black Bolt,zsv10pt5,Illustration Rare,94,2025/07/18,21.29,19.0,23.03,99.99,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-94
+2026-06-22,me1-138,Vulpix,Mega Evolution,me1,Illustration Rare,138,2025/09/26,21.25,15.99,21.5,999.0,https://prices.pokemontcg.io/tcgplayer/me1-138
+2026-06-22,zsv10pt5-109,Cubchoo,Black Bolt,zsv10pt5,Illustration Rare,109,2025/07/18,21.07,20.63,23.45,122.6,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-109
+2026-06-22,rsv10pt5-91,Deerling,White Flare,rsv10pt5,Illustration Rare,91,2025/07/18,20.94,20.5,25.0,146.3,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-91
+2026-06-22,sv2-265,Boss's Orders (Ghetsis),Paldea Evolved,sv2,Special Illustration Rare,265,2023/06/09,20.93,16.37,21.93,383.4,https://prices.pokemontcg.io/tcgplayer/sv2-265
+2026-06-22,sv2-268,Grusha,Paldea Evolved,sv2,Special Illustration Rare,268,2023/06/09,20.92,17.0,21.75,155.04,https://prices.pokemontcg.io/tcgplayer/sv2-268
+2026-06-22,rsv10pt5-136,Purrloin,White Flare,rsv10pt5,Illustration Rare,136,2025/07/18,20.91,19.95,24.99,139.8,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-136
+2026-06-22,sv1-208,Pachirisu,Scarlet & Violet,sv1,Illustration Rare,208,2023/03/31,20.87,17.0,23.05,132.92,https://prices.pokemontcg.io/tcgplayer/sv1-208
+2026-06-22,zsv10pt5-95,Foongus,Black Bolt,zsv10pt5,Illustration Rare,95,2025/07/18,20.83,18.99,21.99,123.2,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-95
+2026-06-22,sv8pt5-174,Kieran,Prismatic Evolutions,sv8pt5,Special Illustration Rare,174,2025/01/17,20.76,19.0,23.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-174
+2026-06-22,sv6pt5-96,Earthen Vessel,Shrouded Fable,sv6pt5,Hyper Rare,96,2024/08/02,20.73,16.0,22.64,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-96
+2026-06-22,zsv10pt5-116,Munna,Black Bolt,zsv10pt5,Illustration Rare,116,2025/07/18,20.72,18.99,22.94,113.3,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-116
+2026-06-22,rsv10pt5-117,Galvantula,White Flare,rsv10pt5,Illustration Rare,117,2025/07/18,20.7,19.62,24.6,155.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-117
+2026-06-22,sv9-167,N's Reshiram,Journey Together,sv9,Illustration Rare,167,2025/03/28,20.69,18.1,26.97,149.99,https://prices.pokemontcg.io/tcgplayer/sv9-167
+2026-06-22,sv5-212,Salvatore,Temporal Forces,sv5,Special Illustration Rare,212,2024/03/22,20.52,12.77,20.19,117.8,https://prices.pokemontcg.io/tcgplayer/sv5-212
+2026-06-22,sv2-200,Pyroar,Paldea Evolved,sv2,Illustration Rare,200,2023/06/09,20.48,13.99,20.48,89.4,https://prices.pokemontcg.io/tcgplayer/sv2-200
+2026-06-22,sv2-199,Fletchinder,Paldea Evolved,sv2,Illustration Rare,199,2023/06/09,20.31,19.55,23.13,29.07,https://prices.pokemontcg.io/tcgplayer/sv2-199
+2026-06-22,sv8pt5-148,Hearthflame Mask Ogerpon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,148,2025/01/17,20.15,18.0,22.99,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-148
+2026-06-22,zsv10pt5-135,Sandile,Black Bolt,zsv10pt5,Illustration Rare,135,2025/07/18,19.92,17.0,22.0,94.25,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-135
+2026-06-22,sv9-162,Wailord,Journey Together,sv9,Illustration Rare,162,2025/03/28,19.89,15.0,20.59,122.38,https://prices.pokemontcg.io/tcgplayer/sv9-162
+2026-06-22,sv9-188,Iono's Bellibolt ex,Journey Together,sv9,Hyper Rare,188,2025/03/28,19.85,16.0,21.59,121.1,https://prices.pokemontcg.io/tcgplayer/sv9-188
+2026-06-22,me2-126,Rotom ex,Phantasmal Flames,me2,Special Illustration Rare,126,2025/11/14,19.75,18.0,21.99,999.0,https://prices.pokemontcg.io/tcgplayer/me2-126
+2026-06-22,sv3pt5-179,Mr. Mime,151,sv3pt5,Illustration Rare,179,2023/09/22,19.74,12.35,19.5,109.84,https://prices.pokemontcg.io/tcgplayer/sv3pt5-179
+2026-06-22,zsv10pt5-113,Tynamo,Black Bolt,zsv10pt5,Illustration Rare,113,2025/07/18,19.45,15.0,21.18,158.1,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-113
+2026-06-22,sv6pt5-91,Munkidori ex,Shrouded Fable,sv6pt5,Special Illustration Rare,91,2024/08/02,19.44,17.0,21.43,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-91
+2026-06-22,me1-146,Marshadow,Mega Evolution,me1,Illustration Rare,146,2025/09/26,19.42,17.0,21.79,999.0,https://prices.pokemontcg.io/tcgplayer/me1-146
+2026-06-22,sv7-152,Milcery,Stellar Crown,sv7,Illustration Rare,152,2024/09/13,19.31,14.99,20.17,118.82,https://prices.pokemontcg.io/tcgplayer/sv7-152
+2026-06-22,rsv10pt5-87,Sewaddle,White Flare,rsv10pt5,Illustration Rare,87,2025/07/18,19.21,12.96,21.45,133.1,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-87
+2026-06-22,me1-185,Lt. Surge's Bargain,Mega Evolution,me1,Special Illustration Rare,185,2025/09/26,19.2,17.99,20.53,999.0,https://prices.pokemontcg.io/tcgplayer/me1-185
+2026-06-22,zsv10pt5-138,Escavalier,Black Bolt,zsv10pt5,Illustration Rare,138,2025/07/18,19.12,18.55,22.0,157.5,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-138
+2026-06-22,me2-128,Mega Lopunny ex,Phantasmal Flames,me2,Special Illustration Rare,128,2025/11/14,19.1,15.0,23.0,999.0,https://prices.pokemontcg.io/tcgplayer/me2-128
+2026-06-22,sv3-205,Scizor,Obsidian Flames,sv3,Illustration Rare,205,2023/08/11,18.98,14.69,20.12,500.0,https://prices.pokemontcg.io/tcgplayer/sv3-205
+2026-06-22,sv4pt5-239,Penny,Paldean Fates,sv4pt5,Special Illustration Rare,239,2024/01/26,18.96,16.99,21.0,109.99,https://prices.pokemontcg.io/tcgplayer/sv4pt5-239
+2026-06-22,sv4-207,Brute Bonnet,Paradox Rift,sv4,Illustration Rare,207,2023/11/03,18.86,12.48,22.9,242.59,https://prices.pokemontcg.io/tcgplayer/sv4-207
+2026-06-22,rsv10pt5-140,Trubbish,White Flare,rsv10pt5,Illustration Rare,140,2025/07/18,18.85,16.99,20.89,111.4,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-140
+2026-06-22,sv8pt5-152,Wellspring Mask Ogerpon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,152,2025/01/17,18.82,17.0,20.43,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-152
+2026-06-22,sv5-168,Snom,Temporal Forces,sv5,Illustration Rare,168,2024/03/22,18.68,14.26,19.08,147.31,https://prices.pokemontcg.io/tcgplayer/sv5-168
+2026-06-22,rsv10pt5-129,Gigalith,White Flare,rsv10pt5,Illustration Rare,129,2025/07/18,18.64,17.0,20.5,167.5,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-129
+2026-06-22,rsv10pt5-125,Gothorita,White Flare,rsv10pt5,Illustration Rare,125,2025/07/18,18.59,18.49,22.1,111.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-125
+2026-06-22,sv4-204,Garbodor,Paradox Rift,sv4,Illustration Rare,204,2023/11/03,18.58,15.66,20.86,154.71,https://prices.pokemontcg.io/tcgplayer/sv4-204
+2026-06-22,sv3pt5-204,Giovanni's Charisma,151,sv3pt5,Special Illustration Rare,204,2023/09/22,18.55,14.0,20.0,206.7,https://prices.pokemontcg.io/tcgplayer/sv3pt5-204
+2026-06-22,sv4-260,Garchomp ex,Paradox Rift,sv4,Hyper Rare,260,2023/11/03,18.48,13.42,20.23,108.48,https://prices.pokemontcg.io/tcgplayer/sv4-260
+2026-06-22,rsv10pt5-155,Herdier,White Flare,rsv10pt5,Illustration Rare,155,2025/07/18,18.48,16.76,21.0,99.46,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-155
+2026-06-22,sv10-184,Cynthia's Roserade,Destined Rivals,sv10,Illustration Rare,184,2025/05/30,18.46,14.15,18.99,129.5,https://prices.pokemontcg.io/tcgplayer/sv10-184
+2026-06-22,zsv10pt5-104,Palpitoad,Black Bolt,zsv10pt5,Illustration Rare,104,2025/07/18,18.31,14.5,19.22,79.59,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-104
+2026-06-22,sv1-203,Armarouge,Scarlet & Violet,sv1,Illustration Rare,203,2023/03/31,18.29,15.55,20.0,60.0,https://prices.pokemontcg.io/tcgplayer/sv1-203
+2026-06-22,sv10-242,Team Rocket's Crobat ex,Destined Rivals,sv10,Hyper Rare,242,2025/05/30,18.1,15.99,19.72,9999.0,https://prices.pokemontcg.io/tcgplayer/sv10-242
+2026-06-22,rsv10pt5-170,Bouffalant ex,White Flare,rsv10pt5,Special Illustration Rare,170,2025/07/18,18.04,15.0,20.67,159.2,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-170
+2026-06-22,sv4-255,Parasol Lady,Paradox Rift,sv4,Special Illustration Rare,255,2023/11/03,17.84,14.99,18.25,114.68,https://prices.pokemontcg.io/tcgplayer/sv4-255
+2026-06-22,sv3pt5-180,Omanyte,151,sv3pt5,Illustration Rare,180,2023/09/22,17.75,15.0,19.24,158.76,https://prices.pokemontcg.io/tcgplayer/sv3pt5-180
+2026-06-22,rsv10pt5-146,Deino,White Flare,rsv10pt5,Illustration Rare,146,2025/07/18,17.67,15.0,20.97,121.5,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-146
+2026-06-22,me2-98,Piplup,Phantasmal Flames,me2,Illustration Rare,98,2025/11/14,17.63,14.99,19.97,999.0,https://prices.pokemontcg.io/tcgplayer/me2-98
+2026-06-22,sv8pt5-172,Drayton,Prismatic Evolutions,sv8pt5,Special Illustration Rare,172,2025/01/17,17.52,15.75,19.12,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-172
+2026-06-22,sv2-257,Wo-Chien ex,Paldea Evolved,sv2,Special Illustration Rare,257,2023/06/09,17.45,13.59,19.99,126.16,https://prices.pokemontcg.io/tcgplayer/sv2-257
+2026-06-22,sv8pt5-160,Cornerstone Mask Ogerpon ex,Prismatic Evolutions,sv8pt5,Special Illustration Rare,160,2025/01/17,17.44,15.0,19.56,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-160
+2026-06-22,sv9-189,N's Zoroark ex,Journey Together,sv9,Hyper Rare,189,2025/03/28,17.43,15.0,19.29,155.94,https://prices.pokemontcg.io/tcgplayer/sv9-189
+2026-06-22,sv6-213,Wellspring Mask Ogerpon ex,Twilight Masquerade,sv6,Special Illustration Rare,213,2024/05/24,17.37,14.01,19.44,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-213
+2026-06-22,sv6-168,Pinsir,Twilight Masquerade,sv6,Illustration Rare,168,2024/05/24,17.36,12.99,18.87,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-168
+2026-06-22,sv2-218,Paldean Tauros,Paldea Evolved,sv2,Illustration Rare,218,2023/06/09,17.31,14.4,18.99,104.9,https://prices.pokemontcg.io/tcgplayer/sv2-218
+2026-06-22,zsv10pt5-88,Servine,Black Bolt,zsv10pt5,Illustration Rare,88,2025/07/18,17.23,15.99,19.99,144.2,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-88
+2026-06-22,sv6pt5-74,Okidogi,Shrouded Fable,sv6pt5,Illustration Rare,74,2024/08/02,17.15,14.0,18.45,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-74
+2026-06-22,rsv10pt5-100,Simisear,White Flare,rsv10pt5,Illustration Rare,100,2025/07/18,17.11,15.25,19.99,87.9,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-100
+2026-06-22,sv5-210,Eri,Temporal Forces,sv5,Special Illustration Rare,210,2024/03/22,17.08,13.0,19.99,139.5,https://prices.pokemontcg.io/tcgplayer/sv5-210
+2026-06-22,rsv10pt5-111,Vanillite,White Flare,rsv10pt5,Illustration Rare,111,2025/07/18,16.98,13.0,19.97,123.1,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-111
+2026-06-22,sv10-191,Team Rocket's Houndoom,Destined Rivals,sv10,Illustration Rare,191,2025/05/30,16.97,13.75,19.1,140.71,https://prices.pokemontcg.io/tcgplayer/sv10-191
+2026-06-22,rsv10pt5-149,Ferrothorn,White Flare,rsv10pt5,Illustration Rare,149,2025/07/18,16.85,16.79,20.66,169.5,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-149
+2026-06-22,rsv10pt5-102,Lampent,White Flare,rsv10pt5,Illustration Rare,102,2025/07/18,16.83,14.42,19.73,109.9,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-102
+2026-06-22,sv6pt5-77,Fraxure,Shrouded Fable,sv6pt5,Illustration Rare,77,2024/08/02,16.55,10.21,17.9,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-77
+2026-06-22,sv4-212,Loudred,Paradox Rift,sv4,Illustration Rare,212,2023/11/03,16.51,12.23,17.2,74.99,https://prices.pokemontcg.io/tcgplayer/sv4-212
+2026-06-22,sv4pt5-243,Miraidon ex,Paldean Fates,sv4pt5,Hyper Rare,243,2024/01/26,16.46,11.98,18.97,104.5,https://prices.pokemontcg.io/tcgplayer/sv4pt5-243
+2026-06-22,sv6pt5-76,Cufant,Shrouded Fable,sv6pt5,Illustration Rare,76,2024/08/02,16.29,13.5,17.97,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-76
+2026-06-22,zsv10pt5-123,Golurk,Black Bolt,zsv10pt5,Illustration Rare,123,2025/07/18,16.17,13.0,19.99,85.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-123
+2026-06-22,sv3-209,Lechonk,Obsidian Flames,sv3,Illustration Rare,209,2023/08/11,16.05,11.0,16.08,200.0,https://prices.pokemontcg.io/tcgplayer/sv3-209
+2026-06-22,sv8pt5-170,Amarys,Prismatic Evolutions,sv8pt5,Special Illustration Rare,170,2025/01/17,16.04,13.25,18.43,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-170
+2026-06-22,sv5-214,Gouging Fire ex,Temporal Forces,sv5,Hyper Rare,214,2024/03/22,16.04,10.87,16.04,118.4,https://prices.pokemontcg.io/tcgplayer/sv5-214
+2026-06-22,sv6-215,Cornerstone Mask Ogerpon ex,Twilight Masquerade,sv6,Special Illustration Rare,215,2024/05/24,16.02,12.59,16.34,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-215
+2026-06-22,sv5-164,Grotle,Temporal Forces,sv5,Illustration Rare,164,2024/03/22,16.02,9.0,20.99,121.58,https://prices.pokemontcg.io/tcgplayer/sv5-164
+2026-06-22,sv4-198,Gimmighoul,Paradox Rift,sv4,Illustration Rare,198,2023/11/03,15.77,12.46,17.37,91.37,https://prices.pokemontcg.io/tcgplayer/sv4-198
+2026-06-22,rsv10pt5-94,Accelgor,White Flare,rsv10pt5,Illustration Rare,94,2025/07/18,15.72,12.0,18.86,200.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-94
+2026-06-22,sv6-173,Infernape,Twilight Masquerade,sv6,Illustration Rare,173,2024/05/24,15.71,12.99,16.95,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-173
+2026-06-22,sv1-207,Dondozo,Scarlet & Violet,sv1,Illustration Rare,207,2023/03/31,15.68,12.5,17.0,39.99,https://prices.pokemontcg.io/tcgplayer/sv1-207
+2026-06-22,zsv10pt5-97,Darumaka,Black Bolt,zsv10pt5,Illustration Rare,97,2025/07/18,15.42,13.76,18.35,200.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-97
+2026-06-22,sv2-260,Quaquaval ex,Paldea Evolved,sv2,Special Illustration Rare,260,2023/06/09,15.35,12.0,17.85,109.18,https://prices.pokemontcg.io/tcgplayer/sv2-260
+2026-06-22,sv2-270,Saguaro,Paldea Evolved,sv2,Special Illustration Rare,270,2023/06/09,15.34,13.58,17.49,1000.0,https://prices.pokemontcg.io/tcgplayer/sv2-270
+2026-06-22,sv1-221,Starly,Scarlet & Violet,sv1,Illustration Rare,221,2023/03/31,15.23,11.09,16.12,86.55,https://prices.pokemontcg.io/tcgplayer/sv1-221
+2026-06-22,rsv10pt5-112,Vanillish,White Flare,rsv10pt5,Illustration Rare,112,2025/07/18,15.21,12.0,18.24,87.5,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-112
+2026-06-22,sv8-212,Slakoth,Surging Sparks,sv8,Illustration Rare,212,2024/11/08,15.2,12.0,16.09,89.57,https://prices.pokemontcg.io/tcgplayer/sv8-212
+2026-06-22,sv2-228,Farigiraf,Paldea Evolved,sv2,Illustration Rare,228,2023/06/09,15.06,10.91,17.0,97.6,https://prices.pokemontcg.io/tcgplayer/sv2-228
+2026-06-22,sv6pt5-73,Fezandipiti,Shrouded Fable,sv6pt5,Illustration Rare,73,2024/08/02,15.02,10.42,15.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-73
+2026-06-22,sv1-199,Tarountula,Scarlet & Violet,sv1,Illustration Rare,199,2023/03/31,14.98,11.09,15.78,500.0,https://prices.pokemontcg.io/tcgplayer/sv1-199
+2026-06-22,sv10-185,Shaymin,Destined Rivals,sv10,Illustration Rare,185,2025/05/30,14.91,10.0,15.43,97.3,https://prices.pokemontcg.io/tcgplayer/sv10-185
+2026-06-22,zsv10pt5-126,Gurdurr,Black Bolt,zsv10pt5,Illustration Rare,126,2025/07/18,14.75,9.14,15.95,73.75,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-126
+2026-06-22,zsv10pt5-99,Larvesta,Black Bolt,zsv10pt5,Illustration Rare,99,2025/07/18,14.72,10.0,16.09,114.2,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-99
+2026-06-22,sv2-195,Tropius,Paldea Evolved,sv2,Illustration Rare,195,2023/06/09,14.6,11.28,16.0,94.9,https://prices.pokemontcg.io/tcgplayer/sv2-195
+2026-06-22,sv2-221,Paldean Wooper,Paldea Evolved,sv2,Illustration Rare,221,2023/06/09,14.57,11.89,16.47,101.22,https://prices.pokemontcg.io/tcgplayer/sv2-221
+2026-06-22,sv7-151,Zeraora,Stellar Crown,sv7,Illustration Rare,151,2024/09/13,14.54,11.0,16.22,94.5,https://prices.pokemontcg.io/tcgplayer/sv7-151
+2026-06-22,zsv10pt5-101,Panpour,Black Bolt,zsv10pt5,Illustration Rare,101,2025/07/18,14.47,13.0,16.64,88.79,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-101
+2026-06-22,sv6-223,Buddy-Buddy Poffin,Twilight Masquerade,sv6,Hyper Rare,223,2024/05/24,14.46,10.0,15.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-223
+2026-06-22,sv4-214,Porygon-Z,Paradox Rift,sv4,Illustration Rare,214,2023/11/03,14.17,11.99,16.44,99.8,https://prices.pokemontcg.io/tcgplayer/sv4-214
+2026-06-22,sv5-218,Raging Bolt ex,Temporal Forces,sv5,Hyper Rare,218,2024/03/22,14.15,12.0,14.8,99.99,https://prices.pokemontcg.io/tcgplayer/sv5-218
+2026-06-22,sv6pt5-65,Tapu Bulu,Shrouded Fable,sv6pt5,Illustration Rare,65,2024/08/02,14.11,8.87,15.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv6pt5-65
+2026-06-22,sv8-241,Archaludon ex,Surging Sparks,sv8,Special Illustration Rare,241,2024/11/08,14.1,10.75,15.6,119.9,https://prices.pokemontcg.io/tcgplayer/sv8-241
+2026-06-22,rsv10pt5-119,Woobat,White Flare,rsv10pt5,Illustration Rare,119,2025/07/18,13.96,11.0,15.74,103.1,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-119
+2026-06-22,zsv10pt5-103,Tympole,Black Bolt,zsv10pt5,Illustration Rare,103,2025/07/18,13.95,9.75,14.52,94.6,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-103
+2026-06-22,sv7-154,Gulpin,Stellar Crown,sv7,Illustration Rare,154,2024/09/13,13.88,10.0,15.17,99.1,https://prices.pokemontcg.io/tcgplayer/sv7-154
+2026-06-22,sv8-204,Mesprit,Surging Sparks,sv8,Illustration Rare,204,2024/11/08,13.82,10.51,14.14,239.2,https://prices.pokemontcg.io/tcgplayer/sv8-204
+2026-06-22,sv2-279,Basic Water Energy,Paldea Evolved,sv2,Hyper Rare,279,2023/06/09,13.72,9.1,14.68,144.19,https://prices.pokemontcg.io/tcgplayer/sv2-279
+2026-06-22,sv6-170,Dipplin,Twilight Masquerade,sv6,Illustration Rare,170,2024/05/24,13.68,9.99,14.25,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-170
+2026-06-22,rsv10pt5-110,Swanna,White Flare,rsv10pt5,Illustration Rare,110,2025/07/18,13.66,12.69,15.66,100.59,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-110
+2026-06-22,zsv10pt5-119,Duosion,Black Bolt,zsv10pt5,Illustration Rare,119,2025/07/18,13.57,11.3,16.06,200.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-119
+2026-06-22,sv2-213,Gothorita,Paldea Evolved,sv2,Illustration Rare,213,2023/06/09,13.56,10.82,15.69,96.95,https://prices.pokemontcg.io/tcgplayer/sv2-213
+2026-06-22,rsv10pt5-126,Frillish,White Flare,rsv10pt5,Illustration Rare,126,2025/07/18,13.55,12.96,15.05,140.1,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-126
+2026-06-22,rsv10pt5-127,Roggenrola,White Flare,rsv10pt5,Illustration Rare,127,2025/07/18,13.46,7.7,18.05,80.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-127
+2026-06-22,rsv10pt5-152,Patrat,White Flare,rsv10pt5,Illustration Rare,152,2025/07/18,13.37,8.5,28.14,94.8,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-152
+2026-06-22,zsv10pt5-120,Elgyem,Black Bolt,zsv10pt5,Illustration Rare,120,2025/07/18,13.35,11.82,16.02,83.4,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-120
+2026-06-22,sv1-246,Great Tusk ex,Scarlet & Violet,sv1,Special Illustration Rare,246,2023/03/31,13.18,9.23,14.48,57.5,https://prices.pokemontcg.io/tcgplayer/sv1-246
+2026-06-22,rsv10pt5-120,Swoobat,White Flare,rsv10pt5,Illustration Rare,120,2025/07/18,13.11,11.92,19.17,108.2,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-120
+2026-06-22,rsv10pt5-99,Pansear,White Flare,rsv10pt5,Illustration Rare,99,2025/07/18,13.07,10.99,15.0,88.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-99
+2026-06-22,sv7-171,Briar,Stellar Crown,sv7,Special Illustration Rare,171,2024/09/13,13.03,10.49,14.0,124.0,https://prices.pokemontcg.io/tcgplayer/sv7-171
+2026-06-22,sv4pt5-245,Koraidon ex,Paldean Fates,sv4pt5,Hyper Rare,245,2024/01/26,13.02,10.03,13.91,117.28,https://prices.pokemontcg.io/tcgplayer/sv4pt5-245
+2026-06-22,sv10-204,Kangaskhan,Destined Rivals,sv10,Illustration Rare,204,2025/05/30,12.98,11.87,14.32,100.1,https://prices.pokemontcg.io/tcgplayer/sv10-204
+2026-06-22,sv6-212,Hearthflame Mask Ogerpon ex,Twilight Masquerade,sv6,Special Illustration Rare,212,2024/05/24,12.75,9.99,15.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-212
+2026-06-22,sv5-163,Shiftry,Temporal Forces,sv5,Illustration Rare,163,2024/03/22,12.65,7.0,13.76,75.57,https://prices.pokemontcg.io/tcgplayer/sv5-163
+2026-06-22,sv5-181,Chatot,Temporal Forces,sv5,Illustration Rare,181,2024/03/22,12.59,8.0,12.7,89.8,https://prices.pokemontcg.io/tcgplayer/sv5-181
+2026-06-22,sv7-174,Area Zero Underdepths,Stellar Crown,sv7,Hyper Rare,174,2024/09/13,12.56,11.36,13.79,103.0,https://prices.pokemontcg.io/tcgplayer/sv7-174
+2026-06-22,sv6-185,Applin,Twilight Masquerade,sv6,Illustration Rare,185,2024/05/24,12.42,7.96,12.59,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-185
+2026-06-22,sv8-209,Skarmory,Surging Sparks,sv8,Illustration Rare,209,2024/11/08,12.39,7.98,12.34,74.7,https://prices.pokemontcg.io/tcgplayer/sv8-209
+2026-06-22,sv5-215,Walking Wake ex,Temporal Forces,sv5,Hyper Rare,215,2024/03/22,12.38,8.0,12.5,93.5,https://prices.pokemontcg.io/tcgplayer/sv5-215
+2026-06-22,rsv10pt5-132,Archeops,White Flare,rsv10pt5,Illustration Rare,132,2025/07/18,12.37,10.0,13.84,109.9,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-132
+2026-06-22,sv4-191,Wimpod,Paradox Rift,sv4,Illustration Rare,191,2023/11/03,12.36,8.55,13.66,96.95,https://prices.pokemontcg.io/tcgplayer/sv4-191
+2026-06-22,sv3-204,Houndour,Obsidian Flames,sv3,Illustration Rare,204,2023/08/11,12.29,9.77,12.99,94.25,https://prices.pokemontcg.io/tcgplayer/sv3-204
+2026-06-22,sv10-192,Blaziken,Destined Rivals,sv10,Illustration Rare,192,2025/05/30,12.28,10.49,13.99,99.9,https://prices.pokemontcg.io/tcgplayer/sv10-192
+2026-06-22,sv4pt5-241,Chi-Yu ex,Paldean Fates,sv4pt5,Hyper Rare,241,2024/01/26,12.24,9.43,12.5,95.0,https://prices.pokemontcg.io/tcgplayer/sv4pt5-241
+2026-06-22,sv4-190,Vanillish,Paradox Rift,sv4,Illustration Rare,190,2023/11/03,12.15,9.39,13.69,163.55,https://prices.pokemontcg.io/tcgplayer/sv4-190
+2026-06-22,sv2-263,Ting-Lu ex,Paldea Evolved,sv2,Special Illustration Rare,263,2023/06/09,12.13,9.94,13.92,92.12,https://prices.pokemontcg.io/tcgplayer/sv2-263
+2026-06-22,sv4-248,Iron Hands ex,Paradox Rift,sv4,Special Illustration Rare,248,2023/11/03,12.06,10.0,13.48,210.2,https://prices.pokemontcg.io/tcgplayer/sv4-248
+2026-06-22,rsv10pt5-147,Zweilous,White Flare,rsv10pt5,Illustration Rare,147,2025/07/18,12.06,10.0,13.72,83.4,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-147
+2026-06-22,zsv10pt5-122,Golett,Black Bolt,zsv10pt5,Illustration Rare,122,2025/07/18,12.03,9.5,17.5,59.78,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-122
+2026-06-22,zsv10pt5-90,Simisage,Black Bolt,zsv10pt5,Illustration Rare,90,2025/07/18,11.98,9.99,13.83,63.86,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-90
+2026-06-22,sv6-175,Phione,Twilight Masquerade,sv6,Illustration Rare,175,2024/05/24,11.94,9.96,13.91,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-175
+2026-06-22,sv2-264,Squawkabilly ex,Paldea Evolved,sv2,Special Illustration Rare,264,2023/06/09,11.9,8.0,13.22,45.0,https://prices.pokemontcg.io/tcgplayer/sv2-264
+2026-06-22,sv3-208,Pidgeotto,Obsidian Flames,sv3,Illustration Rare,208,2023/08/11,11.83,9.99,13.73,68.1,https://prices.pokemontcg.io/tcgplayer/sv3-208
+2026-06-22,sv1-243,Spidops ex,Scarlet & Violet,sv1,Special Illustration Rare,243,2023/03/31,11.82,8.97,12.63,59.77,https://prices.pokemontcg.io/tcgplayer/sv1-243
+2026-06-22,sv4-195,Blitzle,Paradox Rift,sv4,Illustration Rare,195,2023/11/03,11.81,6.49,11.26,69.19,https://prices.pokemontcg.io/tcgplayer/sv4-195
+2026-06-22,sv4pt5-242,Chien-Pao ex,Paldean Fates,sv4pt5,Hyper Rare,242,2024/01/26,11.78,7.76,11.78,73.22,https://prices.pokemontcg.io/tcgplayer/sv4pt5-242
+2026-06-22,sv2-214,Sandygast,Paldea Evolved,sv2,Illustration Rare,214,2023/06/09,11.78,9.01,12.37,69.04,https://prices.pokemontcg.io/tcgplayer/sv2-214
+2026-06-22,rsv10pt5-97,Pignite,White Flare,rsv10pt5,Illustration Rare,97,2025/07/18,11.71,9.38,13.57,101.7,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-97
+2026-06-22,sv5-174,Excadrill,Temporal Forces,sv5,Illustration Rare,174,2024/03/22,11.7,6.03,12.76,100.0,https://prices.pokemontcg.io/tcgplayer/sv5-174
+2026-06-22,sv5-173,Relicanth,Temporal Forces,sv5,Illustration Rare,173,2024/03/22,11.67,8.12,11.91,45.0,https://prices.pokemontcg.io/tcgplayer/sv5-173
+2026-06-22,sv7-173,Terapagos ex,Stellar Crown,sv7,Hyper Rare,173,2024/09/13,11.66,9.5,12.0,101.56,https://prices.pokemontcg.io/tcgplayer/sv7-173
+2026-06-22,rsv10pt5-133,Mienfoo,White Flare,rsv10pt5,Illustration Rare,133,2025/07/18,11.43,9.99,13.6,94.5,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-133
+2026-06-22,sv4-210,Aegislash,Paradox Rift,sv4,Illustration Rare,210,2023/11/03,11.41,7.13,11.73,57.95,https://prices.pokemontcg.io/tcgplayer/sv4-210
+2026-06-22,sv2-227,Flamigo,Paldea Evolved,sv2,Illustration Rare,227,2023/06/09,11.41,9.99,12.99,125.74,https://prices.pokemontcg.io/tcgplayer/sv2-227
+2026-06-22,sv4-192,Veluza,Paradox Rift,sv4,Illustration Rare,192,2023/11/03,11.4,8.89,13.5,25.0,https://prices.pokemontcg.io/tcgplayer/sv4-192
+2026-06-22,sv8pt5-177,Teal Mask Ogerpon ex,Prismatic Evolutions,sv8pt5,Hyper Rare,177,2025/01/17,11.38,10.42,13.02,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-177
+2026-06-22,zsv10pt5-102,Simipour,Black Bolt,zsv10pt5,Illustration Rare,102,2025/07/18,11.35,8.0,12.93,89.99,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-102
+2026-06-22,rsv10pt5-122,Yamask,White Flare,rsv10pt5,Illustration Rare,122,2025/07/18,11.29,8.95,12.99,104.1,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-122
+2026-06-22,sv2-266,Dendra,Paldea Evolved,sv2,Special Illustration Rare,266,2023/06/09,11.25,8.22,12.0,40.0,https://prices.pokemontcg.io/tcgplayer/sv2-266
+2026-06-22,zsv10pt5-98,Darmanitan,Black Bolt,zsv10pt5,Illustration Rare,98,2025/07/18,11.2,9.0,12.99,63.7,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-98
+2026-06-22,rsv10pt5-88,Swadloon,White Flare,rsv10pt5,Illustration Rare,88,2025/07/18,11.2,9.12,13.17,79.68,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-88
+2026-06-22,sv2-207,Quaxwell,Paldea Evolved,sv2,Illustration Rare,207,2023/06/09,11.19,7.0,11.9,62.14,https://prices.pokemontcg.io/tcgplayer/sv2-207
+2026-06-22,sv2-225,Rookidee,Paldea Evolved,sv2,Illustration Rare,225,2023/06/09,11.05,10.0,12.67,40.0,https://prices.pokemontcg.io/tcgplayer/sv2-225
+2026-06-22,sv2-278,Basic Grass Energy,Paldea Evolved,sv2,Hyper Rare,278,2023/06/09,11.02,6.97,11.48,149.27,https://prices.pokemontcg.io/tcgplayer/sv2-278
+2026-06-22,sv8-198,Feebas,Surging Sparks,sv8,Illustration Rare,198,2024/11/08,11.02,6.0,12.35,67.0,https://prices.pokemontcg.io/tcgplayer/sv8-198
+2026-06-22,sv2-198,Bramblin,Paldea Evolved,sv2,Illustration Rare,198,2023/06/09,11.02,8.0,11.16,54.75,https://prices.pokemontcg.io/tcgplayer/sv2-198
+2026-06-22,sv10-200,Team Rocket's Murkrow,Destined Rivals,sv10,Illustration Rare,200,2025/05/30,10.92,8.48,11.1,99.5,https://prices.pokemontcg.io/tcgplayer/sv10-200
+2026-06-22,sv2-229,Dudunsparce,Paldea Evolved,sv2,Illustration Rare,229,2023/06/09,10.86,6.75,11.99,69.06,https://prices.pokemontcg.io/tcgplayer/sv2-229
+2026-06-22,rsv10pt5-121,Sigilyph,White Flare,rsv10pt5,Illustration Rare,121,2025/07/18,10.79,6.5,12.95,72.0,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-121
+2026-06-22,sv4-216,Iron Jugulis,Paradox Rift,sv4,Illustration Rare,216,2023/11/03,10.76,9.4,11.9,75.68,https://prices.pokemontcg.io/tcgplayer/sv4-216
+2026-06-22,zsv10pt5-107,Carracosta,Black Bolt,zsv10pt5,Illustration Rare,107,2025/07/18,10.71,9.99,11.9,71.0,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-107
+2026-06-22,sv1-220,Kingambit,Scarlet & Violet,sv1,Illustration Rare,220,2023/03/31,10.7,8.89,11.66,70.0,https://prices.pokemontcg.io/tcgplayer/sv1-220
+2026-06-22,sv8-199,Spheal,Surging Sparks,sv8,Illustration Rare,199,2024/11/08,10.69,7.99,11.12,35.0,https://prices.pokemontcg.io/tcgplayer/sv8-199
+2026-06-22,sv8-248,Alolan Exeggutor ex,Surging Sparks,sv8,Hyper Rare,248,2024/11/08,10.67,8.97,11.69,109.9,https://prices.pokemontcg.io/tcgplayer/sv8-248
+2026-06-22,sv1-209,Pawmot,Scarlet & Violet,sv1,Illustration Rare,209,2023/03/31,10.62,8.82,11.85,140.0,https://prices.pokemontcg.io/tcgplayer/sv1-209
+2026-06-22,sv8-250,Gravity Mountain,Surging Sparks,sv8,Hyper Rare,250,2024/11/08,10.46,8.9,11.05,109.9,https://prices.pokemontcg.io/tcgplayer/sv8-250
+2026-06-22,rsv10pt5-114,Blitzle,White Flare,rsv10pt5,Illustration Rare,114,2025/07/18,10.36,8.99,12.12,76.7,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-114
+2026-06-22,sv8pt5-180,Terapagos ex,Prismatic Evolutions,sv8pt5,Hyper Rare,180,2025/01/17,10.26,8.0,12.1,999.0,https://prices.pokemontcg.io/tcgplayer/sv8pt5-180
+2026-06-22,zsv10pt5-136,Krokorok,Black Bolt,zsv10pt5,Illustration Rare,136,2025/07/18,10.24,8.91,11.53,72.2,https://prices.pokemontcg.io/tcgplayer/zsv10pt5-136
+2026-06-22,sv6-221,Teal Mask Ogerpon ex,Twilight Masquerade,sv6,Hyper Rare,221,2024/05/24,10.23,7.29,11.0,999.0,https://prices.pokemontcg.io/tcgplayer/sv6-221
+2026-06-22,sv4-188,Snorunt,Paradox Rift,sv4,Illustration Rare,188,2023/11/03,10.22,7.0,11.0,28.0,https://prices.pokemontcg.io/tcgplayer/sv4-188
+2026-06-22,sv10-189,Rapidash,Destined Rivals,sv10,Illustration Rare,189,2025/05/30,10.13,8.99,11.5,78.1,https://prices.pokemontcg.io/tcgplayer/sv10-189
+2026-06-22,rsv10pt5-130,Sawk,White Flare,rsv10pt5,Illustration Rare,130,2025/07/18,10.09,8.49,12.49,79.9,https://prices.pokemontcg.io/tcgplayer/rsv10pt5-130
