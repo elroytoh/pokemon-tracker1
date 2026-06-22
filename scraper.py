@@ -57,7 +57,7 @@ HISTORY_COLS    = [
 def get_cards(rarity: str, page: int = 1) -> dict:
     """Fetch one page of cards for a given rarity from pokemontcg.io."""
     params = {
-        "q":        f'rarity:"{rarity}" set.releaseDate:[{MIN_RELEASE} TO *]',
+        "q":        f'rarity:"{rarity}"',
         "select":   "id,name,set,rarity,number,tcgplayer",
         "pageSize": 250,
         "page":     page,
@@ -86,6 +86,8 @@ def extract_price(card: dict) -> dict | None:
         return None
 
     set_info = card.get("set", {})
+    if set_info.get("releaseDate", "9999") < MIN_RELEASE.replace("/", "-"):
+        return None
     return {
         "card_id":      card.get("id", ""),
         "name":         card.get("name", ""),
