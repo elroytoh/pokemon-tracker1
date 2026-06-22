@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pokemon Chase Card Tracker</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:       #0d1117;
+      --surface:  #161b22;
+      --border:   #30363d;
+      --text:     #e6edf3;
+      --muted:    #8b949e;
+      --accent:   #58a6ff;
+      --green:    #3fb950;
+      --red:      #f85149;
+      --gold:     #f0c000;
+      --radius:   10px;
+      --gap:      16px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; min-height: 100vh; }
+
+    /* ── Header ───────────────────────────────────────────────────── */
+    header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 18px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    header h1 { font-size: 1.25rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    header h1 span { font-size: 1.5rem; }
+    #last-update { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── Stats bar ────────────────────────────────────────────────── */
+    .stats { display: flex; gap: var(--gap); padding: 16px 28px; flex-wrap: wrap; }
+    .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 20px; min-width: 130px; }
+    .stat-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+    .stat-value { font-size: 1.5rem; font-weight: 700; }
+
+    /* ── Controls ─────────────────────────────────────────────────── */
+    .controls { padding: 12px 28px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .controls input, .controls select {
+      background: var(--surface); border: 1px solid var(--border); color: var(--text);
+      border-radius: 6px; padding: 7px 12px; font-size: 0.88rem; outline: none;
+    }
+    .controls input:focus, .controls select:focus { border-color: var(--accent); }
+    .controls label { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── Main grid ────────────────────────────────────────────────── */
+    .main { display: grid; grid-template-columns: 1fr 380px; gap: var(--gap); padding: 0 28px 28px; }
+    @media(max-width: 900px) { .main { grid-template-columns: 1fr; } }
+
+    /* ── Cards table ──────────────────────────────────────────────── */
+    .card-table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+    thead th { background: #1c2128; padding: 10px 14px; text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; white-space: nowrap; }
+    thead th:hover { color: var(--text); }
+    thead th.sorted { color: var(--accent); }
+    tbody tr { border-bottom: 1px solid var(--border); cursor: pointer; transition: background .12s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(88,166,255,.06); }
+    tbody tr.selected { background: rgba(88,166,255,.12); }
+    td { padding: 11px 14px; vertical-align: middle; }
+    td.name { font-weight: 600; }
+    td.set  { color: var(--muted); font-size: 0.82rem; }
+    .rarity-badge { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 2px 7px; border-radius: 20px; text-transform: uppercase; letter-spacing: .04em; }
+    .rarity-SIR  { background: rgba(240,192,0,.15); color: var(--gold); border: 1px solid rgba(240,192,0,.3); }
+    .rarity-HR   { background: rgba(240,192,0,.08); color: #c8a400; border: 1px solid rgba(200,164,0,.25); }
+    .rarity-IR   { background: rgba(88,166,255,.12); color: var(--accent); border: 1px solid rgba(88,166,255,.25); }
+    .rarity-OTHER{ background: rgba(139,148,158,.12); color: var(--muted); border: 1px solid var(--border); }
+    .price { font-weight: 700; font-size: 0.95rem; }
+    .chg { font-weight: 600; font-size: 0.85rem; }
+    .chg.up   { color: var(--green); }
+    .chg.down { color: var(--red); }
+    .chg.flat { color: var(--muted); }
+    .sparkline { width: 80px; height: 28px; }
+
+    /* ── Side panel ───────────────────────────────────────────────── */
+    .side { display: flex; flex-direction: column; gap: var(--gap); }
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+    .panel h2 { font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
+    #selected-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+    #selected-meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 14px; }
+    #selected-price { font-size: 2rem; font-weight: 800; margin-bottom: 2px; }
+    #selected-chg   { font-size: 0.9rem; margin-bottom: 14px; }
+    #chart-wrap { position: relative; height: 200px; }
+    .no-select { color: var(--muted); font-size: 0.88rem; padding: 20px 0; text-align: center; }
+    .price-row { display: flex; justify-content: space-between; font-size: 0.83rem; padding: 5px 0; border-bottom: 1px solid var(--border); }
+    .price-row:last-child { border-bottom: none; }
+    .price-row span:first-child { color: var(--muted); }
+    .price-row span:last-child  { font-weight: 600; }
+
+    /* ── Top movers ───────────────────────────────────────────────── */
+    .mover { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
+    .mover:last-child { border-bottom: none; }
+    .mover-name { font-weight: 600; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .mover-set  { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── Loader / error ───────────────────────────────────────────── */
+    #loader { display: flex; align-items: center; justify-content: center; height: 200px; color: var(--muted); font-size: 0.9rem; gap: 10px; }
+    .spinner { width: 18px; height: 18px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #error-msg { background: rgba(248,81,73,.1); border: 1px solid rgba(248,81,73,.3); border-radius: var(--radius); padding: 14px 18px; font-size: 0.88rem; color: var(--red); display: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><span>⚡</span> Pokemon Chase Card Tracker</h1>
+  <div id="last-update">Loading…</div>
+</header>
+
+<div class="stats">
+  <div class="stat"><div class="stat-label">Cards Tracked</div><div class="stat-value" id="stat-cards">—</div></div>
+  <div class="stat"><div class="stat-label">Sets Covered</div><div class="stat-value" id="stat-sets">—</div></div>
+  <div class="stat"><div class="stat-label">Days of Data</div><div class="stat-value" id="stat-days">—</div></div>
+  <div class="stat"><div class="stat-label">Top Card</div><div class="stat-value" id="stat-top" style="font-size:1rem;line-height:1.2">—</div></div>
+</div>
+
+<div class="controls">
+  <input id="search" type="text" placeholder="🔍  Search card or set…" style="width:220px"/>
+  <select id="filter-set"><option value="">All Sets</option></select>
+  <select id="filter-rarity"><option value="">All Rarities</option></select>
+  <select id="sort-by">
+    <option value="market_price_desc">Price ↓</option>
+    <option value="market_price_asc">Price ↑</option>
+    <option value="chg7_desc">7d Change ↓</option>
+    <option value="chg7_asc">7d Change ↑</option>
+    <option value="chg30_desc">30d Change ↓</option>
+    <option value="name_asc">Name A→Z</option>
+  </select>
+</div>
+
+<div id="error-msg"></div>
+
+<div class="main">
+  <!-- Cards table -->
+  <div class="card-table-wrap">
+    <div id="loader"><div class="spinner"></div> Loading price data…</div>
+    <table id="card-table" style="display:none">
+      <thead>
+        <tr>
+          <th data-col="name">Card</th>
+          <th data-col="set_name">Set</th>
+          <th data-col="rarity">Rarity</th>
+          <th data-col="market_price">Market $</th>
+          <th data-col="low_price">Low</th>
+          <th data-col="high_price">High</th>
+          <th data-col="chg7">7d %</th>
+          <th data-col="chg30">30d %</th>
+          <th>Trend</th>
+        </tr>
+      </thead>
+      <tbody id="card-tbody"></tbody>
+    </table>
+  </div>
+
+  <!-- Side panel -->
+  <div class="side">
+    <div class="panel" id="detail-panel">
+      <div class="no-select">← Click a card to see its price history</div>
+      <div id="detail-content" style="display:none">
+        <div id="selected-name"></div>
+        <div id="selected-meta"></div>
+        <div id="selected-price"></div>
+        <div id="selected-chg"></div>
+        <div id="chart-wrap"><canvas id="price-chart"></canvas></div>
+        <div style="margin-top:14px">
+          <div class="price-row"><span>Low (all time)</span><span id="d-low">—</span></div>
+          <div class="price-row"><span>High (all time)</span><span id="d-high">—</span></div>
+          <div class="price-row"><span>Avg (30d)</span><span id="d-avg">—</span></div>
+          <div class="price-row"><span>Data points</span><span id="d-pts">—</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>🚀 Top Gainers (7d)</h2>
+      <div id="top-gainers"><div class="no-select">No data yet</div></div>
+    </div>
+
+    <div class="panel">
+      <h2>📉 Top Losers (7d)</h2>
+      <div id="top-losers"><div class="no-select">No data yet</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Config — update REPO_PATH if you rename the repo ──────────────────────
+const HISTORY_CSV = "./data/history.csv";   // works on GitHub Pages
+
+// ── State ──────────────────────────────────────────────────────────────────
+let allData = [];       // raw history rows
+let cardMap  = {};      // productId → { meta, history: [{date, price, low, high}] }
+let filtered = [];      // currently displayed cards
+let chart    = null;
+let sortKey  = "market_price_desc";
+let selectedId = null;
+
+// ── Helpers ────────────────────────────────────────────────────────────────
+const fmt$ = v => v != null && v !== "" ? "$" + (+v).toFixed(2) : "—";
+const fmtPct = v => {
+  if (v == null || isNaN(v)) return { txt: "—", cls: "flat" };
+  const pct = (+v).toFixed(1);
+  return { txt: (v > 0 ? "+" : "") + pct + "%", cls: v > 0.5 ? "up" : v < -0.5 ? "down" : "flat" };
+};
+
+function rarityBadge(r) {
+  const s = (r||"").toUpperCase();
+  const cls = s === "SIR" ? "SIR" : s === "HR" ? "HR" : s === "IR" ? "IR" : "OTHER";
+  return `<span class="rarity-badge rarity-${cls}">${s || "?"}</span>`;
+}
+
+function csvParse(text) {
+  const lines = text.trim().split("\n");
+  const headers = lines[0].split(",").map(h => h.trim().replace(/^"|"$/g,""));
+  return lines.slice(1).map(line => {
+    // handle quoted fields
+    const vals = [];
+    let cur = "", inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      if (line[i] === '"') { inQ = !inQ; continue; }
+      if (line[i] === ',' && !inQ) { vals.push(cur); cur = ""; continue; }
+      cur += line[i];
+    }
+    vals.push(cur);
+    const row = {};
+    headers.forEach((h,i) => row[h] = (vals[i]||"").trim());
+    return row;
+  });
+}
+
+// ── Load data ──────────────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    const res = await fetch(HISTORY_CSV + "?v=" + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = await res.text();
+    if (!text.trim()) throw new Error("history.csv is empty — run the scraper first");
+
+    allData = csvParse(text);
+    buildCardMap();
+    populateFilters();
+    renderStats();
+    applyFilters();
+    renderMovers();
+
+    document.getElementById("last-update").textContent =
+      "Last updated: " + (allData.at(-1)?.date || "unknown");
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("card-table").style.display = "";
+
+  } catch (e) {
+    document.getElementById("loader").style.display = "none";
+    const el = document.getElementById("error-msg");
+    el.style.display = "block";
+    el.textContent = "⚠  " + e.message +
+      (e.message.includes("empty") ? "" : " — Make sure data/history.csv exists in the repo.");
+  }
+}
+
+function buildCardMap() {
+  cardMap = {};
+  for (const row of allData) {
+    const id = row.product_id || (row.name + "|" + row.set_name);
+    if (!cardMap[id]) {
+      cardMap[id] = {
+        id, name: row.name, set_name: row.set_name,
+        rarity: row.rarity, card_number: row.card_number,
+        source_url: row.source_url, history: [],
+      };
+    }
+    cardMap[id].history.push({
+      date:   row.date,
+      price:  parseFloat(row.market_price) || null,
+      low:    parseFloat(row.low_price)    || null,
+      high:   parseFloat(row.high_price)   || null,
+      mid:    parseFloat(row.mid_price)    || null,
+    });
+  }
+  // Sort each history by date
+  Object.values(cardMap).forEach(c => c.history.sort((a,b) => a.date < b.date ? -1 : 1));
+}
+
+function latestPrice(card) {
+  const valid = card.history.filter(h => h.price);
+  return valid.at(-1) || {};
+}
+
+function priceNDaysAgo(card, n) {
+  const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - n);
+  const cutStr = cutoff.toISOString().slice(0,10);
+  const hist = card.history.filter(h => h.price && h.date <= cutStr);
+  return hist.at(-1)?.price ?? null;
+}
+
+function pctChange(card, days) {
+  const now  = latestPrice(card).price;
+  const then = priceNDaysAgo(card, days);
+  if (!now || !then) return null;
+  return ((now - then) / then) * 100;
+}
+
+// ── Filters & sort ─────────────────────────────────────────────────────────
+function populateFilters() {
+  const sets     = [...new Set(Object.values(cardMap).map(c => c.set_name).filter(Boolean))].sort();
+  const rarities = [...new Set(Object.values(cardMap).map(c => c.rarity).filter(Boolean))].sort();
+
+  const setEl = document.getElementById("filter-set");
+  sets.forEach(s => { const o = document.createElement("option"); o.value = s; o.textContent = s; setEl.appendChild(o); });
+
+  const rarEl = document.getElementById("filter-rarity");
+  rarities.forEach(r => { const o = document.createElement("option"); o.value = r; o.textContent = r; rarEl.appendChild(o); });
+}
+
+function applyFilters() {
+  const search = document.getElementById("search").value.toLowerCase();
+  const set    = document.getElementById("filter-set").value;
+  const rarity = document.getElementById("filter-rarity").value;
+
+  filtered = Object.values(cardMap).filter(c => {
+    if (set    && c.set_name !== set)   return false;
+    if (rarity && c.rarity  !== rarity) return false;
+    if (search && !c.name?.toLowerCase().includes(search) &&
+                  !c.set_name?.toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  const [col, dir] = sortKey.split("_asc").length > 1
+    ? [sortKey.replace("_asc",""), "asc"]
+    : [sortKey.replace("_desc",""), "desc"];
+
+  filtered.sort((a,b) => {
+    let va, vb;
+    if (col === "market_price") { va = latestPrice(a).price||0; vb = latestPrice(b).price||0; }
+    else if (col === "chg7")  { va = pctChange(a,7)??-999;   vb = pctChange(b,7)??-999; }
+    else if (col === "chg30") { va = pctChange(a,30)??-999;  vb = pctChange(b,30)??-999; }
+    else { va = (a[col]||"").toLowerCase(); vb = (b[col]||"").toLowerCase(); }
+    return dir === "asc" ? (va>vb?1:-1) : (va<vb?1:-1);
+  });
+
+  renderTable();
+}
+
+// ── Render ─────────────────────────────────────────────────────────────────
+function renderStats() {
+  const cards = Object.values(cardMap);
+  document.getElementById("stat-cards").textContent = cards.length;
+  document.getElementById("stat-sets").textContent  = new Set(cards.map(c=>c.set_name)).size;
+  const dates = [...new Set(allData.map(r=>r.date))];
+  document.getElementById("stat-days").textContent  = dates.length;
+  const top = cards.slice().sort((a,b)=>(latestPrice(b).price||0)-(latestPrice(a).price||0))[0];
+  if (top) document.getElementById("stat-top").textContent = top.name || "—";
+}
+
+function sparklineSVG(card) {
+  const prices = card.history.filter(h=>h.price).map(h=>h.price);
+  if (prices.length < 2) return "<svg class='sparkline'></svg>";
+  const min = Math.min(...prices), max = Math.max(...prices);
+  const range = max - min || 1;
+  const W = 80, H = 28;
+  const pts = prices.map((p,i) => {
+    const x = (i/(prices.length-1)) * W;
+    const y = H - ((p - min)/range) * H * 0.8 - H*0.1;
+    return `${x},${y}`;
+  }).join(" ");
+  const last = prices.at(-1), first = prices[0];
+  const color = last >= first ? "#3fb950" : "#f85149";
+  return `<svg class="sparkline" viewBox="0 0 ${W} ${H}">
+    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+}
+
+function renderTable() {
+  const tbody = document.getElementById("card-tbody");
+  if (!filtered.length) {
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:30px">No cards match your filters</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = filtered.map(card => {
+    const lp   = latestPrice(card);
+    const c7   = fmtPct(pctChange(card, 7));
+    const c30  = fmtPct(pctChange(card, 30));
+    const sel  = card.id === selectedId ? " selected" : "";
+    return `<tr class="${sel}" onclick="selectCard('${card.id}')">
+      <td class="name">${card.name || "—"}</td>
+      <td class="set">${card.set_name || "—"}</td>
+      <td>${rarityBadge(card.rarity)}</td>
+      <td class="price">${fmt$(lp.price)}</td>
+      <td style="color:var(--muted);font-size:.83rem">${fmt$(lp.low)}</td>
+      <td style="color:var(--muted);font-size:.83rem">${fmt$(lp.high)}</td>
+      <td class="chg ${c7.cls}">${c7.txt}</td>
+      <td class="chg ${c30.cls}">${c30.txt}</td>
+      <td>${sparklineSVG(card)}</td>
+    </tr>`;
+  }).join("");
+}
+
+function renderMovers() {
+  const cards = Object.values(cardMap)
+    .map(c => ({ ...c, chg7: pctChange(c,7) }))
+    .filter(c => c.chg7 != null);
+
+  const sorted = [...cards].sort((a,b)=>b.chg7-a.chg7);
+
+  const gainEl = document.getElementById("top-gainers");
+  const loseEl = document.getElementById("top-losers");
+
+  function moverHtml(c) {
+    const p = fmtPct(c.chg7);
+    return `<div class="mover" onclick="selectCard('${c.id}')">
+      <div><div class="mover-name">${c.name}</div><div class="mover-set">${c.set_name}</div></div>
+      <span class="chg ${p.cls}">${p.txt}</span>
+    </div>`;
+  }
+
+  const gainers = sorted.filter(c=>c.chg7>0).slice(0,5);
+  const losers  = sorted.filter(c=>c.chg7<0).slice(-5).reverse();
+
+  gainEl.innerHTML = gainers.length ? gainers.map(moverHtml).join("") : `<div class="no-select">No gainers yet</div>`;
+  loseEl.innerHTML = losers.length  ? losers.map(moverHtml).join("")  : `<div class="no-select">No losers yet</div>`;
+}
+
+// ── Detail panel ───────────────────────────────────────────────────────────
+function selectCard(id) {
+  selectedId = id;
+  renderTable();  // update selected highlight
+
+  const card = cardMap[id];
+  if (!card) return;
+
+  document.querySelector(".no-select").style.display = "none";
+  document.getElementById("detail-content").style.display = "block";
+
+  const lp  = latestPrice(card);
+  const c7  = fmtPct(pctChange(card, 7));
+  const c30 = fmtPct(pctChange(card, 30));
+
+  document.getElementById("selected-name").textContent  = card.name;
+  document.getElementById("selected-meta").textContent  =
+    `${card.set_name || ""}  ·  ${card.card_number || ""}  ·  ${card.rarity || ""}`;
+  document.getElementById("selected-price").textContent = fmt$(lp.price);
+  document.getElementById("selected-chg").innerHTML =
+    `<span class="chg ${c7.cls}">${c7.txt} (7d)</span>&nbsp;&nbsp;` +
+    `<span class="chg ${c30.cls}">${c30.txt} (30d)</span>`;
+
+  // Stats
+  const prices = card.history.filter(h=>h.price).map(h=>h.price);
+  document.getElementById("d-low").textContent  = fmt$(Math.min(...prices));
+  document.getElementById("d-high").textContent = fmt$(Math.max(...prices));
+  const last30 = card.history.filter(h => {
+    const d = new Date(); d.setDate(d.getDate()-30);
+    return h.price && h.date >= d.toISOString().slice(0,10);
+  });
+  const avg30 = last30.length ? last30.reduce((s,h)=>s+h.price,0)/last30.length : null;
+  document.getElementById("d-avg").textContent = fmt$(avg30);
+  document.getElementById("d-pts").textContent = prices.length;
+
+  // Chart
+  const labels = card.history.filter(h=>h.price).map(h=>h.date);
+  const data   = card.history.filter(h=>h.price).map(h=>h.price);
+
+  if (chart) chart.destroy();
+  chart = new Chart(document.getElementById("price-chart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: [{
+        data, borderColor: "#58a6ff", backgroundColor: "rgba(88,166,255,.1)",
+        borderWidth: 2, pointRadius: data.length > 30 ? 0 : 3,
+        pointBackgroundColor: "#58a6ff", tension: 0.3, fill: true,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, animation: false,
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: { label: ctx => " $" + ctx.parsed.y.toFixed(2) }
+      }},
+      scales: {
+        x: { ticks: { color: "#8b949e", maxTicksLimit: 6, font:{size:10} }, grid:{color:"rgba(48,54,61,.5)"} },
+        y: { ticks: { color: "#8b949e", callback: v=>"$"+v, font:{size:10} }, grid:{color:"rgba(48,54,61,.5)"} },
+      }
+    }
+  });
+}
+
+// ── Event listeners ────────────────────────────────────────────────────────
+document.getElementById("search").addEventListener("input", applyFilters);
+document.getElementById("filter-set").addEventListener("change", applyFilters);
+document.getElementById("filter-rarity").addEventListener("change", applyFilters);
+document.getElementById("sort-by").addEventListener("change", e => { sortKey = e.target.value; applyFilters(); });
+
+document.querySelectorAll("thead th[data-col]").forEach(th => {
+  th.addEventListener("click", () => {
+    const col = th.dataset.col;
+    const cur = sortKey;
+    sortKey = cur === col+"_desc" ? col+"_asc" : col+"_desc";
+    document.querySelectorAll("thead th").forEach(t=>t.classList.remove("sorted"));
+    th.classList.add("sorted");
+    document.getElementById("sort-by").value = sortKey;
+    applyFilters();
+  });
+});
+
+// ── Boot ───────────────────────────────────────────────────────────────────
+loadData();
+</script>
+</body>
+</html>
