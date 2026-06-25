@@ -177,15 +177,35 @@ def fetch_pokeinsight(type_slug):
     print(f"    HTML size: {len(r.text):,} bytes | sealed-product links found: {len(all_links)}")
     if all_links:
         print(f"    Sample href: {all_links[0].get('href','')!r}")
+        print(f"    Sample link text: {all_links[0].get_text(' ', strip=True)[:120]!r}")
+        # Also check the link's parent for price context
+        parent = all_links[0].parent
+        print(f"    Sample parent text: {parent.get_text(' ', strip=True)[:200]!r}")
     products = []
 
-    # Each product is an <a> link pointing to /sealed-products/{slug}
-    # href may be relative (/sealed-products/slug) or absolute
+    # Products may wrap the link in a parent container that holds the price.
+    # Strategy: for each product link, grab the closest ancestor that contains a $ price,
+    # then parse name + prices from that container.
+    seen_slugs = set()
     for link in soup.find_all("a", href=re.compile(r"/sealed-products/[^/\s\"]+$")):
         href = link["href"]
-        text = link.get_text(" ", strip=True)
+        slug = href.rstrip("/").split("/")[-1]
+        if slug in seen_slugs:
+            continue
+        seen_slugs.add(slug)
 
-        # Market price: first dollar amount in the text
+        # Walk up the DOM until we find a $ price
+        container = link
+        text = container.get_text(" ", strip=True)
+        for _ in range(4):
+            if "$" in text:
+                break
+            container = container.parent
+            if container is None:
+                break
+            text = container.get_text(" ", strip=True)
+
+        # Market price: first dollar amount
         market_match = re.search(r"\$([\d,]+\.?\d*)", text)
         if not market_match:
             continue
@@ -194,13 +214,14 @@ def fetch_pokeinsight(type_slug):
             continue
 
         # Price range (low - high)
-        range_matches = re.findall(r"\$([\d,]+\.?\d*)", text)
-        low  = float(range_matches[1].replace(",","")) if len(range_matches) > 1 else None
-        high = float(range_matches[2].replace(",","")) if len(range_matches) > 2 else None
+        all_prices = re.findall(r"\$([\d,]+\.?\d*)", text)
+        low  = float(all_prices[1].replace(",","")) if len(all_prices) > 1 else None
+        high = float(all_prices[2].replace(",","")) if len(all_prices) > 2 else None
 
-        # Name: text before the first $
-        name_part = text.split("$")[0]
-        name = clean_name(name_part)
+        # Name from link text (before any $)
+        link_text = link.get_text(" ", strip=True)
+        name_part = link_text.split("$")[0] if "$" in link_text else link_text
+        name = clean_name(name_part) or slug.replace("-", " ").title()
 
         full_url = href if href.startswith("http") else f"https://www.pokeinsight.com{href}"
         products.append({
@@ -209,7 +230,7 @@ def fetch_pokeinsight(type_slug):
             "low_price":    low,
             "high_price":   high,
             "url":          full_url,
-            "slug":         href.rstrip("/").split("/")[-1],
+            "slug":         slug,
         })
 
     return products
