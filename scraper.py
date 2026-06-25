@@ -172,11 +172,16 @@ def fetch_pokeinsight(type_slug):
     r   = requests.get(url, headers=HEADERS, timeout=30)
     r.raise_for_status()
 
-    soup     = BeautifulSoup(r.text, "html.parser")
+    soup      = BeautifulSoup(r.text, "html.parser")
+    all_links = soup.find_all("a", href=re.compile(r"/sealed-products/"))
+    print(f"    HTML size: {len(r.text):,} bytes | sealed-product links found: {len(all_links)}")
+    if all_links:
+        print(f"    Sample href: {all_links[0].get('href','')!r}")
     products = []
 
     # Each product is an <a> link pointing to /sealed-products/{slug}
-    for link in soup.find_all("a", href=re.compile(r"^https?://www\.pokeinsight\.com/sealed-products/[^/]+$")):
+    # href may be relative (/sealed-products/slug) or absolute
+    for link in soup.find_all("a", href=re.compile(r"/sealed-products/[^/\s\"]+$")):
         href = link["href"]
         text = link.get_text(" ", strip=True)
 
@@ -197,12 +202,13 @@ def fetch_pokeinsight(type_slug):
         name_part = text.split("$")[0]
         name = clean_name(name_part)
 
+        full_url = href if href.startswith("http") else f"https://www.pokeinsight.com{href}"
         products.append({
             "name":         name,
             "market_price": market,
             "low_price":    low,
             "high_price":   high,
-            "url":          href,
+            "url":          full_url,
             "slug":         href.rstrip("/").split("/")[-1],
         })
 
