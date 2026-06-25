@@ -206,7 +206,7 @@ def fetch_pokeinsight(type_slug):
             text = container.get_text(" ", strip=True)
 
         # Market price: first dollar amount
-        market_match = re.search(r"\$([\d,]+\.?\d*)", text)
+        market_match = re.search(r"\$\s*([\d,]+\.?\d*)", text)
         if not market_match:
             continue
         market = float(market_match.group(1).replace(",", ""))
@@ -214,7 +214,7 @@ def fetch_pokeinsight(type_slug):
             continue
 
         # Price range (low - high)
-        all_prices = re.findall(r"\$([\d,]+\.?\d*)", text)
+        all_prices = re.findall(r"\$\s*([\d,]+\.?\d*)", text)
         low  = float(all_prices[1].replace(",","")) if len(all_prices) > 1 else None
         high = float(all_prices[2].replace(",","")) if len(all_prices) > 2 else None
 
