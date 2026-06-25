@@ -161,9 +161,10 @@ def scrape_cards(today: str):
 def search_pricecharting(query: str) -> list:
     """Search PriceCharting for a product, return list of matches."""
     try:
-        r = requests.get(f"{PC_API_BASE}/products", params={"q": query}, timeout=20)
+        r = requests.get(f"{PC_API_BASE}/products", params={"q": query, "status": "200"}, timeout=20)
         r.raise_for_status()
-        return r.json().get("products", [])
+        data = r.json()
+        return data.get("products", [])
     except Exception as e:
         print(f"    PC error: {e}")
         return []
