@@ -3,41 +3,47 @@ Pokemon Price Scraper
 ======================
 Tracks two things every night:
   1. CHASE CARDS    — SIR, Hyper Rare, Illustration Rare singles via pokemontcg.io
-  2. SEALED PRODUCTS — Booster boxes & ETBs via PriceCharting free API
+  2. SEALED PRODUCTS — Booster boxes & ETBs via PokeInsight (HTML scrape)
 
 Outputs:
   data/history.csv        — card prices
   data/sealed_history.csv — sealed product prices
 
-SETUP:  pip install requests pandas
+SETUP:  pip install requests pandas beautifulsoup4
 USAGE:  python scraper.py
 """
 
-import csv, json, time, sys
+import csv, re, time, sys
 from datetime import date, datetime
 from pathlib import Path
 
 try:
     import requests
     import pandas as pd
+    from bs4 import BeautifulSoup
 except ImportError:
-    print("Run: pip install requests pandas")
+    print("Run: pip install requests pandas beautifulsoup4")
     sys.exit(1)
 
 # ── Config ────────────────────────────────────────────────────────────────────
 HISTORY_FILE        = Path("data/history.csv")
 SEALED_HISTORY_FILE = Path("data/sealed_history.csv")
-SEALED_PRODUCTS_FILE= Path("sealed_products.json")
-
 for f in [HISTORY_FILE, SEALED_HISTORY_FILE]:
     f.parent.mkdir(parents=True, exist_ok=True)
 
-API_BASE     = "https://api.pokemontcg.io/v2"
-PC_API_BASE  = "https://www.pricecharting.com/api"
+API_BASE        = "https://api.pokemontcg.io/v2"
+POKEINSIGHT_URL = "https://www.pokeinsight.com/sealed-products/type"
+
+HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; PokemonPriceTracker/1.0)"}
 
 CHASE_RARITIES = ["Special Illustration Rare", "Hyper Rare", "Illustration Rare"]
 MIN_RELEASE    = "2022-01-01"
 MIN_PRICE      = 10.00
+
+SEALED_TYPES = [
+    ("booster-box", "Booster Box"),
+    ("elite-trainer-box", "ETB"),
+]
 
 CARD_COLS = [
     "date", "card_id", "name", "set_name", "set_id",
@@ -45,13 +51,13 @@ CARD_COLS = [
     "market_price", "low_price", "mid_price", "high_price", "tcgplayer_url",
 ]
 SEALED_COLS = [
-    "date", "set", "type", "name", "market_price",
-    "loose_price", "new_price", "pricecharting_id", "source_url",
+    "date", "set", "type", "name",
+    "market_price", "low_price", "high_price", "source_url",
 ]
 
 # ── Shared helpers ────────────────────────────────────────────────────────────
 
-def append_row(path: Path, row: dict, cols: list):
+def append_row(path, row, cols):
     write_header = not path.exists() or path.stat().st_size == 0
     with open(path, "a", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
@@ -59,60 +65,53 @@ def append_row(path: Path, row: dict, cols: list):
             w.writeheader()
         w.writerow(row)
 
-def already_today(path: Path, id_col: str, id_val: str, today: str) -> bool:
+def already_today(path, id_col, id_val, today):
     if not path.exists() or path.stat().st_size == 0:
         return False
     try:
         df = pd.read_csv(path, dtype=str)
-        return not df[(df["date"] == today) & (df[id_col] == id_val)].empty
+        return not df[(df["date"] == today) & (df[id_col] == str(id_val))].empty
     except Exception:
         return False
 
 # ── PART 1: Chase cards (pokemontcg.io) ──────────────────────────────────────
 
-def fetch_cards(rarity: str, page: int) -> dict:
+def fetch_cards(rarity, page):
     r = requests.get(f"{API_BASE}/cards", params={
-        "q":        f'rarity:"{rarity}"',
-        "select":   "id,name,set,rarity,number,tcgplayer",
-        "pageSize": 250,
-        "page":     page,
-        "orderBy":  "-set.releaseDate",
+        "q": f'rarity:"{rarity}"', "select": "id,name,set,rarity,number,tcgplayer",
+        "pageSize": 250, "page": page, "orderBy": "-set.releaseDate",
     }, timeout=30)
     r.raise_for_status()
     return r.json()
 
-def extract_card_price(card: dict) -> dict | None:
-    tcp      = card.get("tcgplayer", {})
-    prices   = tcp.get("prices", {})
-    pd_data  = prices.get("holofoil") or prices.get("normal") or \
-               (list(prices.values())[0] if prices else None)
-    if not pd_data:
+def extract_card_price(card):
+    tcp    = card.get("tcgplayer", {})
+    prices = tcp.get("prices", {})
+    pd_    = prices.get("holofoil") or prices.get("normal") or \
+             (list(prices.values())[0] if prices else None)
+    if not pd_:
         return None
-    market = pd_data.get("market") or pd_data.get("mid")
+    market = pd_.get("market") or pd_.get("mid")
     if not market or market < MIN_PRICE:
         return None
-    set_info = card.get("set", {})
-    if set_info.get("releaseDate", "9999") < MIN_RELEASE:
+    s = card.get("set", {})
+    if s.get("releaseDate", "9999") < MIN_RELEASE:
         return None
     return {
-        "card_id":      card.get("id", ""),
-        "name":         card.get("name", ""),
-        "set_name":     set_info.get("name", ""),
-        "set_id":       set_info.get("id", ""),
-        "rarity":       card.get("rarity", ""),
-        "card_number":  card.get("number", ""),
-        "release_date": set_info.get("releaseDate", ""),
+        "card_id": card.get("id",""), "name": card.get("name",""),
+        "set_name": s.get("name",""), "set_id": s.get("id",""),
+        "rarity": card.get("rarity",""), "card_number": card.get("number",""),
+        "release_date": s.get("releaseDate",""),
         "market_price": round(market, 2),
-        "low_price":    round(pd_data.get("low") or 0, 2),
-        "mid_price":    round(pd_data.get("mid") or 0, 2),
-        "high_price":   round(pd_data.get("high") or 0, 2),
-        "tcgplayer_url": tcp.get("url", ""),
+        "low_price":    round(pd_.get("low") or 0, 2),
+        "mid_price":    round(pd_.get("mid") or 0, 2),
+        "high_price":   round(pd_.get("high") or 0, 2),
+        "tcgplayer_url": tcp.get("url",""),
     }
 
-def scrape_cards(today: str):
-    print(f"\n── CHASE CARDS ─────────────────────────────────────────────")
+def scrape_cards(today):
+    print("\n── CHASE CARDS ─────────────────────────────────────────────")
     all_cards = []
-
     for rarity in CHASE_RARITIES:
         print(f"\nFetching: {rarity}")
         page = 1
@@ -136,13 +135,11 @@ def scrape_cards(today: str):
                 break
         time.sleep(0.5)
 
-    # Deduplicate
     seen = {}
     for c in all_cards:
         cid = c["card_id"]
         if cid not in seen or c["market_price"] > seen[cid]["market_price"]:
             seen[cid] = c
-
     unique = sorted(seen.values(), key=lambda c: c["market_price"], reverse=True)
     print(f"\nTotal unique chase cards ≥${MIN_PRICE}: {len(unique)}")
 
@@ -153,109 +150,107 @@ def scrape_cards(today: str):
         append_row(HISTORY_FILE, {"date": today, **card}, CARD_COLS)
         tracked += 1
         print(f"  ✓  ${card['market_price']:>8.2f}  {card['name']:<35} [{card['set_name']}]")
-
     print(f"\n  Tracked {tracked} cards today")
 
-# ── PART 2: Sealed products (PriceCharting) ───────────────────────────────────
+# ── PART 2: Sealed products (PokeInsight) ────────────────────────────────────
 
-def search_pricecharting(query: str) -> list:
-    """Search PriceCharting for a product, return list of matches."""
-    try:
-        r = requests.get(f"{PC_API_BASE}/products", params={"q": query, "status": "200"}, timeout=20)
-        r.raise_for_status()
-        data = r.json()
-        return data.get("products", [])
-    except Exception as e:
-        print(f"    PC error: {e}")
-        return []
+def clean_name(raw):
+    """Remove duplicated name text that PokeInsight repeats in the link."""
+    raw = raw.strip()
+    words = raw.split()
+    half  = len(words) // 2
+    if half > 0 and words[:half] == words[half:]:
+        return " ".join(words[:half])
+    return raw
 
-def best_match(results: list, product_type: str) -> dict | None:
-    """Pick the most relevant result for the given product type."""
-    type_keywords = {
-        "Booster Box": ["booster box", "booster-box"],
-        "ETB":         ["elite trainer", "etb", "elite-trainer"],
-    }
-    keywords = type_keywords.get(product_type, [product_type.lower()])
+def fetch_pokeinsight(type_slug):
+    """
+    Scrape PokeInsight's sealed product listing page.
+    Returns list of {name, market_price, low_price, high_price, url, slug}
+    """
+    url = f"{POKEINSIGHT_URL}/{type_slug}"
+    r   = requests.get(url, headers=HEADERS, timeout=30)
+    r.raise_for_status()
 
-    for r in results:
-        name = (r.get("name") or "").lower()
-        console = (r.get("console-name") or "").lower()
-        combined = f"{name} {console}"
-        if any(kw in combined for kw in keywords):
-            return r
-    return results[0] if results else None
+    soup     = BeautifulSoup(r.text, "html.parser")
+    products = []
 
-def parse_pc_price(cents) -> float | None:
-    """PriceCharting returns prices in cents as integers."""
-    try:
-        v = int(cents)
-        return round(v / 100, 2) if v > 0 else None
-    except (TypeError, ValueError):
-        return None
+    # Each product is an <a> link pointing to /sealed-products/{slug}
+    for link in soup.find_all("a", href=re.compile(r"^https?://www\.pokeinsight\.com/sealed-products/[^/]+$")):
+        href = link["href"]
+        text = link.get_text(" ", strip=True)
 
-def scrape_sealed(today: str):
-    print(f"\n── SEALED PRODUCTS ─────────────────────────────────────────")
-
-    if not SEALED_PRODUCTS_FILE.exists():
-        print("  sealed_products.json not found — skipping")
-        return
-
-    products = json.loads(SEALED_PRODUCTS_FILE.read_text())
-    tracked  = 0
-
-    for product in products:
-        set_name  = product["set"]
-        prod_type = product["type"]
-        search    = product["search"]
-        uid       = f"{set_name}|{prod_type}"
-
-        if already_today(SEALED_HISTORY_FILE, "set", set_name, today):
-            # More precise: check set+type combo
-            try:
-                df = pd.read_csv(SEALED_HISTORY_FILE, dtype=str)
-                if not df[(df["date"] == today) & (df["set"] == set_name) & (df["type"] == prod_type)].empty:
-                    continue
-            except Exception:
-                pass
-
-        print(f"  Searching: {set_name} {prod_type}")
-        results = search_pricecharting(search)
-        match   = best_match(results, prod_type)
-
-        if not match:
-            print(f"    ✗  No match found")
-            time.sleep(0.5)
+        # Market price: first dollar amount in the text
+        market_match = re.search(r"\$([\d,]+\.?\d*)", text)
+        if not market_match:
+            continue
+        market = float(market_match.group(1).replace(",", ""))
+        if market <= 0:
             continue
 
-        loose  = parse_pc_price(match.get("loose-price"))
-        new_p  = parse_pc_price(match.get("new-price"))
-        market = loose or new_p
+        # Price range (low - high)
+        range_matches = re.findall(r"\$([\d,]+\.?\d*)", text)
+        low  = float(range_matches[1].replace(",","")) if len(range_matches) > 1 else None
+        high = float(range_matches[2].replace(",","")) if len(range_matches) > 2 else None
 
-        if not market:
-            print(f"    ✗  No price data")
-            time.sleep(0.5)
+        # Name: text before the first $
+        name_part = text.split("$")[0]
+        name = clean_name(name_part)
+
+        products.append({
+            "name":         name,
+            "market_price": market,
+            "low_price":    low,
+            "high_price":   high,
+            "url":          href,
+            "slug":         href.rstrip("/").split("/")[-1],
+        })
+
+    return products
+
+def set_name_from_slug(slug, prod_type):
+    """Convert 'surging-sparks-booster-box' → 'Surging Sparks'"""
+    suffix = "-booster-box" if "booster" in slug else \
+             "-elite-trainer-box" if "elite" in slug else \
+             "-" + slug.split("-")[-1]
+    base = slug.replace(suffix, "").replace("-enhanced","").replace("-half","")
+    return base.replace("-", " ").title()
+
+def scrape_sealed(today):
+    print("\n── SEALED PRODUCTS (PokeInsight) ───────────────────────────")
+
+    for type_slug, type_label in SEALED_TYPES:
+        print(f"\nFetching: {type_label}s")
+        try:
+            products = fetch_pokeinsight(type_slug)
+            print(f"  Found {len(products)} products")
+        except Exception as e:
+            print(f"  Error: {e}")
             continue
 
-        pc_id  = match.get("id", "")
-        pc_url = f"https://www.pricecharting.com/game/{pc_id}" if pc_id else ""
+        tracked = 0
+        for p in products:
+            uid = p["slug"]
+            if already_today(SEALED_HISTORY_FILE, "source_url", p["url"], today):
+                continue
 
-        row = {
-            "date":              today,
-            "set":               set_name,
-            "type":              prod_type,
-            "name":              match.get("name", search),
-            "market_price":      market,
-            "loose_price":       loose or "",
-            "new_price":         new_p or "",
-            "pricecharting_id":  pc_id,
-            "source_url":        pc_url,
-        }
-        append_row(SEALED_HISTORY_FILE, row, SEALED_COLS)
-        tracked += 1
-        print(f"    ✓  ${market:>8.2f}  {match.get('name', '')}  [{prod_type}]")
-        time.sleep(0.4)   # polite rate limiting
+            set_name = set_name_from_slug(p["slug"], type_label)
+            row = {
+                "date":         today,
+                "set":          set_name,
+                "type":         type_label,
+                "name":         p["name"],
+                "market_price": p["market_price"],
+                "low_price":    p["low_price"] or "",
+                "high_price":   p["high_price"] or "",
+                "source_url":   p["url"],
+            }
+            append_row(SEALED_HISTORY_FILE, row, SEALED_COLS)
+            tracked += 1
+            print(f"  ✓  ${p['market_price']:>8.2f}  {p['name']}")
 
-    print(f"\n  Tracked {tracked} sealed products today")
+        print(f"  Tracked {tracked} {type_label}s today")
+        time.sleep(1)
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
@@ -264,10 +259,8 @@ def main():
     print(f"\n{'='*60}")
     print(f"  Pokemon Price Scraper  ·  {datetime.now():%Y-%m-%d %H:%M:%S}")
     print(f"{'='*60}")
-
     scrape_cards(today)
     scrape_sealed(today)
-
     print(f"\n{'='*60}")
     print(f"  Cards   → {HISTORY_FILE}")
     print(f"  Sealed  → {SEALED_HISTORY_FILE}")
