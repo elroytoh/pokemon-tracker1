@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pokemon Price Tracker</title>
+  <title>Pokemon Chase Card Tracker</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,9 +16,9 @@
     }
     body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; min-height: 100vh; }
     header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
-    header h1 { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    header h1 { font-size: 1.15rem; font-weight: 700; }
     #last-update { font-size: 0.78rem; color: var(--muted); }
-    .tabs { display: flex; gap: 0; padding: 0 28px; border-bottom: 1px solid var(--border); background: var(--surface); }
+    .tabs { display: flex; padding: 0 28px; border-bottom: 1px solid var(--border); background: var(--surface); }
     .tab { padding: 12px 20px; font-size: 0.88rem; font-weight: 600; cursor: pointer; border-bottom: 2px solid transparent; color: var(--muted); transition: color .15s; }
     .tab:hover { color: var(--text); }
     .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
@@ -37,20 +37,16 @@
     table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
     thead th { background: #1c2128; padding: 10px 12px; text-align: left; font-size: 0.71rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); border-bottom: 1px solid var(--border); cursor: pointer; white-space: nowrap; }
     thead th:hover { color: var(--text); }
-    thead th.sorted { color: var(--accent); }
     tbody tr { border-bottom: 1px solid var(--border); cursor: pointer; transition: background .1s; }
     tbody tr:last-child { border-bottom: none; }
     tbody tr:hover { background: rgba(88,166,255,.06); }
     tbody tr.selected { background: rgba(88,166,255,.12); }
     td { padding: 9px 12px; vertical-align: middle; }
-    .badge { display: inline-block; font-size: 0.67rem; font-weight: 700; padding: 2px 7px; border-radius: 20px; text-transform: uppercase; white-space: nowrap; }
+    .badge { display: inline-block; font-size: 0.67rem; font-weight: 700; padding: 2px 7px; border-radius: 20px; text-transform: uppercase; }
     .badge-SIR   { background: rgba(240,192,0,.15); color: var(--gold); border: 1px solid rgba(240,192,0,.3); }
     .badge-HR    { background: rgba(240,192,0,.08); color: #c8a400; border: 1px solid rgba(200,164,0,.2); }
     .badge-IR    { background: rgba(88,166,255,.12); color: var(--accent); border: 1px solid rgba(88,166,255,.25); }
-    .badge-BOX   { background: rgba(63,185,80,.12); color: var(--green); border: 1px solid rgba(63,185,80,.3); }
-    .badge-ETB   { background: rgba(88,166,255,.12); color: var(--accent); border: 1px solid rgba(88,166,255,.25); }
     .badge-OTHER { background: rgba(139,148,158,.1); color: var(--muted); border: 1px solid var(--border); }
-    /* Signal badges */
     .sig { display: inline-flex; align-items: center; gap: 4px; font-size: 0.71rem; font-weight: 800; padding: 3px 9px; border-radius: 20px; letter-spacing:.04em; white-space:nowrap; }
     .sig-BUY  { background: rgba(63,185,80,.18); color: var(--green); border: 1px solid rgba(63,185,80,.4); }
     .sig-SELL { background: rgba(248,81,73,.15); color: var(--red); border: 1px solid rgba(248,81,73,.35); }
@@ -65,11 +61,6 @@
     .panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
     .panel h2 { font-size: 0.88rem; font-weight: 700; margin-bottom: 10px; }
     .no-sel { color: var(--muted); font-size: 0.85rem; padding: 12px 0; text-align: center; }
-    #sel-name, #s-sel-name { font-size: 1rem; font-weight: 700; margin-bottom: 3px; }
-    #sel-meta, #s-sel-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 10px; }
-    #sel-price, #s-sel-price { font-size: 1.8rem; font-weight: 800; }
-    #sel-chg, #s-sel-chg { font-size: 0.87rem; margin-bottom: 10px; }
-    #chart-wrap, #s-chart-wrap { position: relative; height: 175px; }
     .pr { display: flex; justify-content: space-between; font-size: 0.81rem; padding: 5px 0; border-bottom: 1px solid var(--border); }
     .pr:last-child { border-bottom: none; }
     .pr span:first-child { color: var(--muted); }
@@ -77,9 +68,8 @@
     .mover { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; cursor: pointer; }
     .mover:last-child { border-bottom: none; }
     .mover:hover { opacity: 0.8; }
-    .mover-name { font-weight: 600; max-width: 175px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .mover-name { font-weight: 600; max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .mover-sub { font-size: 0.72rem; color: var(--muted); }
-    #loader-g { display: flex; align-items: center; justify-content: center; height: 140px; color: var(--muted); gap: 10px; }
     .loader { display: flex; align-items: center; justify-content: center; height: 140px; color: var(--muted); gap: 10px; }
     .spinner { width: 16px; height: 16px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -87,36 +77,35 @@
     .page-content { display: none; }
     .page-content.active { display: block; }
 
-    /* ── Signals tab ── */
+    /* Signals tab */
     .signals-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); padding: 0 28px 28px; }
     @media(max-width:800px) { .signals-grid { grid-template-columns: 1fr; } }
     .sig-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
-    .sig-card h2 { font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-    .sig-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; cursor:pointer; transition:opacity .1s; }
+    .sig-card h2 { font-size: 0.9rem; font-weight: 700; margin-bottom: 12px; }
+    .sig-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; cursor: pointer; }
     .sig-row:last-child { border-bottom: none; }
     .sig-row:hover { opacity: 0.8; }
-    .sig-row-left { display: flex; flex-direction: column; gap: 2px; max-width: 200px; }
+    .sig-row-left { display: flex; flex-direction: column; gap: 2px; max-width: 210px; }
     .sig-row-name { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .sig-row-sub { font-size: 0.72rem; color: var(--muted); }
     .sig-row-right { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
     .hypo-box { background: rgba(88,166,255,.05); border: 1px solid rgba(88,166,255,.2); border-radius: var(--radius); padding: 14px 18px; margin: 12px 28px; font-size: 0.84rem; line-height: 1.6; }
     .hypo-box strong { color: var(--accent); }
     .ev-bar-wrap { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--muted); margin-top: 3px; }
-    .ev-bar { height: 4px; background: var(--border); border-radius: 2px; flex: 1; overflow: hidden; }
-    .ev-bar-fill { height: 100%; background: var(--green); border-radius: 2px; transition: width .3s; }
+    .ev-bar { height: 4px; background: var(--border); border-radius: 2px; flex: 1; overflow: hidden; min-width: 60px; }
+    .ev-bar-fill { height: 100%; background: var(--green); border-radius: 2px; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>⚡ Pokemon Price Tracker</h1>
+  <h1>⚡ Pokemon Chase Card Tracker</h1>
   <div id="last-update">Loading…</div>
 </header>
 
 <div class="tabs">
   <div class="tab active" onclick="switchTab('signals')">📊 Signals</div>
   <div class="tab" onclick="switchTab('cards')">🃏 Chase Cards</div>
-  <div class="tab" onclick="switchTab('sealed')">📦 Sealed Products</div>
 </div>
 
 <!-- ══════════════════ SIGNALS TAB ══════════════════════════════════ -->
@@ -126,37 +115,28 @@
 
     <div class="hypo-box">
       <strong>📖 Strategy:</strong> When a new set releases, heavy supply pushes the top chase card to its lowest price.
-      Once the next set drops, supply dries up and price recovers. Buy the dip on new releases, sell into the next set window.
-      For sealed — buy when box price is low relative to total set singles value (EV Ratio).
+      Once the next set drops, supply dries up and price recovers.
+      <strong>Buy the dip on new releases, sell into the next set window.</strong>
+      Signal is based on price position (0 = all-time low, 100 = all-time high) combined with recent trend.
     </div>
 
     <div class="signals-grid">
-
-      <!-- Card buy signals -->
       <div class="sig-card">
-        <h2>💎 Card Signals — Top Chase Per Set</h2>
-        <div id="sig-cards-list"><div class="no-sel">Loading…</div></div>
+        <h2>🟢 Buy Opportunities — Top Chase Per Set</h2>
+        <div id="sig-buy-list"><div class="no-sel">Loading…</div></div>
       </div>
-
-      <!-- Sealed buy signals -->
       <div class="sig-card">
-        <h2>📦 Sealed Signals — Box & ETB</h2>
-        <div id="sig-sealed-list"><div class="no-sel">Loading…</div></div>
+        <h2>🔴 Sell Signals — Top Chase Per Set</h2>
+        <div id="sig-sell-list"><div class="no-sel">Loading…</div></div>
       </div>
-
-      <!-- Set value rankings -->
       <div class="sig-card">
-        <h2>🏆 Set Value Rankings <span style="font-size:.75rem;font-weight:400;color:var(--muted)">(total chase singles)</span></h2>
+        <h2>🏆 Set Value Rankings <span style="font-size:.75rem;font-weight:400;color:var(--muted)">(total chase singles value)</span></h2>
         <div id="sig-setval-list"><div class="no-sel">Loading…</div></div>
       </div>
-
-      <!-- EV leaders -->
       <div class="sig-card">
-        <h2>📈 Best EV — Sealed vs Set Value</h2>
-        <div id="sig-ev-list"><div class="no-sel">Needs both cards &amp; sealed data</div></div>
-        <div style="font-size:.73rem;color:var(--muted);margin-top:10px">EV Ratio = Total set singles value ÷ sealed box price. Higher = better expected value.</div>
+        <h2>📉 Biggest Dips (7d)</h2>
+        <div id="sig-dips-list"><div class="no-sel">Loading…</div></div>
       </div>
-
     </div>
   </div>
 </div>
@@ -189,12 +169,12 @@
       <div id="c-loader" class="loader"><div class="spinner"></div> Loading cards…</div>
       <table id="c-table" style="display:none">
         <thead><tr>
-          <th data-col="name">Card</th>
-          <th data-col="set_name">Set</th>
-          <th data-col="rarity">Rarity</th>
-          <th data-col="market_price">Market</th>
-          <th data-col="chg7">7d %</th>
-          <th data-col="chg30">30d %</th>
+          <th>Card</th>
+          <th>Set</th>
+          <th>Rarity</th>
+          <th>Market</th>
+          <th>7d %</th>
+          <th>30d %</th>
           <th>Position</th>
           <th>Signal</th>
           <th>Trend</th>
@@ -204,21 +184,21 @@
     </div>
     <div class="side">
       <div class="panel" id="c-detail">
-        <div class="no-sel">← Click a card</div>
+        <div class="no-sel">← Click a card to see details</div>
         <div id="c-detail-inner" style="display:none">
-          <div id="sel-name"></div>
-          <div id="sel-meta"></div>
+          <div id="sel-name" style="font-size:1rem;font-weight:700;margin-bottom:3px"></div>
+          <div id="sel-meta" style="font-size:.78rem;color:var(--muted);margin-bottom:10px"></div>
           <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px">
-            <div id="sel-price"></div>
+            <div id="sel-price" style="font-size:1.8rem;font-weight:800"></div>
             <div id="sel-signal"></div>
           </div>
-          <div id="sel-chg"></div>
-          <div id="chart-wrap"><canvas id="c-chart"></canvas></div>
+          <div id="sel-chg" style="font-size:.87rem;margin-bottom:10px"></div>
+          <div style="position:relative;height:175px"><canvas id="c-chart"></canvas></div>
           <div style="margin-top:10px">
             <div class="pr"><span>All-time low</span><span id="d-low">—</span></div>
             <div class="pr"><span>All-time high</span><span id="d-high">—</span></div>
             <div class="pr"><span>30d avg</span><span id="d-avg">—</span></div>
-            <div class="pr"><span>Position (0=low, 100=high)</span><span id="d-pos">—</span></div>
+            <div class="pr"><span>Position (0=low 100=high)</span><span id="d-pos">—</span></div>
             <div class="pr"><span>Data points</span><span id="d-pts">—</span></div>
           </div>
         </div>
@@ -229,130 +209,58 @@
   </div>
 </div>
 
-<!-- ══════════════════ SEALED TAB ════════════════════════════════════ -->
-<div id="tab-sealed" class="page-content">
-  <div class="stats">
-    <div class="stat"><div class="stat-label">Products</div><div class="stat-value" id="s-stat-products">—</div></div>
-    <div class="stat"><div class="stat-label">Sets</div><div class="stat-value" id="s-stat-sets">—</div></div>
-    <div class="stat"><div class="stat-label">Days Data</div><div class="stat-value" id="s-stat-days">—</div></div>
-    <div class="stat"><div class="stat-label">Best EV</div><div class="stat-value" id="s-stat-top" style="font-size:.85rem">—</div></div>
-  </div>
-  <div class="controls">
-    <input id="s-search" type="text" placeholder="🔍 Search set…" style="width:210px"/>
-    <select id="s-filter-set"><option value="">All Sets</option></select>
-    <select id="s-filter-type"><option value="">Boxes & ETBs</option><option value="Booster Box">Booster Box</option><option value="ETB">ETB</option></select>
-    <select id="s-sort">
-      <option value="ev_desc">EV Ratio ↓</option>
-      <option value="market_price_desc">Price ↓</option>
-      <option value="market_price_asc">Price ↑</option>
-      <option value="chg7_desc">7d Change ↓</option>
-      <option value="set_asc">Set A→Z</option>
-      <option value="signal_asc">Signal: BUY first</option>
-    </select>
-  </div>
-  <div class="err" id="s-err"></div>
-  <div class="main">
-    <div class="table-wrap">
-      <div id="s-loader" class="loader"><div class="spinner"></div> Loading sealed products…</div>
-      <table id="s-table" style="display:none">
-        <thead><tr>
-          <th data-col="set">Set</th>
-          <th data-col="type">Type</th>
-          <th data-col="market_price">Price</th>
-          <th data-col="set_value">Set Value</th>
-          <th data-col="ev">EV Ratio</th>
-          <th data-col="chg7">7d %</th>
-          <th>Signal</th>
-          <th>Trend</th>
-        </tr></thead>
-        <tbody id="s-tbody"></tbody>
-      </table>
-    </div>
-    <div class="side">
-      <div class="panel" id="s-detail">
-        <div class="no-sel">← Click a product</div>
-        <div id="s-detail-inner" style="display:none">
-          <div id="s-sel-name"></div>
-          <div id="s-sel-meta"></div>
-          <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:6px">
-            <div id="s-sel-price"></div>
-            <div id="s-sel-signal"></div>
-          </div>
-          <div id="s-sel-chg"></div>
-          <div id="s-chart-wrap" style="position:relative;height:175px"><canvas id="s-chart"></canvas></div>
-          <div style="margin-top:10px">
-            <div class="pr"><span>All-time low</span><span id="s-d-low">—</span></div>
-            <div class="pr"><span>All-time high</span><span id="s-d-high">—</span></div>
-            <div class="pr"><span>Set Value (singles)</span><span id="s-d-setval">—</span></div>
-            <div class="pr"><span>EV Ratio</span><span id="s-d-ev">—</span></div>
-            <div class="pr"><span>30d avg</span><span id="s-d-avg">—</span></div>
-            <div class="pr"><span>Data points</span><span id="s-d-pts">—</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="panel"><h2>🚀 Box Gainers (7d)</h2><div id="s-gainers"><div class="no-sel">No data yet</div></div></div>
-      <div class="panel"><h2>📉 Box Losers (7d)</h2><div id="s-losers"><div class="no-sel">No data yet</div></div></div>
-    </div>
-  </div>
-</div>
-
 <script>
-// ── Config ──────────────────────────────────────────────────────────────────
-const REPO       = "https://elroytoh.github.io/pokemon-tracker1";
-const CARDS_CSV  = `${REPO}/data/history.csv`;
-const SEALED_CSV = `${REPO}/data/sealed_history.csv`;
+const REPO      = "https://elroytoh.github.io/pokemon-tracker1";
+const CARDS_CSV = `${REPO}/data/history.csv`;
 
-// ── State ───────────────────────────────────────────────────────────────────
-let cardMap = {}, sealedMap = {};
-let setValues = {};          // set_name → { total, cards }
-let cFiltered = [], sFiltered = [];
-let cSort = "market_price_desc", sSort = "ev_desc";
-let cSelected = null, sSelected = null;
-let cChart = null, sChart = null;
-let topPerSet = true;        // default: show only top card per set
-let currentTab = "signals";
-let dataReady = { cards: false, sealed: false };
+let cardMap  = {};
+let setValues = {};
+let cFiltered = [];
+let cSort     = "market_price_desc";
+let cSelected = null;
+let cChart    = null;
+let topPerSet = true;
 
-// ── Helpers ─────────────────────────────────────────────────────────────────
+// ── Helpers ──────────────────────────────────────────────────────────────────
 function csvParse(text) {
-  const lines = text.trim().split("\n");
+  const lines   = text.trim().split("\n");
   const headers = lines[0].split(",").map(h => h.trim());
   return lines.slice(1).filter(Boolean).map(l => {
     const vals = l.split(",");
-    const obj = {};
+    const obj  = {};
     headers.forEach((h, i) => { obj[h] = (vals[i] || "").trim(); });
     return obj;
   });
 }
 
-function fmt$(v) { return v != null && !isNaN(v) ? "$" + parseFloat(v).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g,",") : "—"; }
+function fmt$(v) {
+  return v != null && !isNaN(v)
+    ? "$" + parseFloat(v).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    : "—";
+}
 
 function latestPrice(item) {
   const h = item.history.filter(x => x.price != null);
-  if (!h.length) return { price: null, low: null, high: null };
-  return h[h.length - 1];
+  return h.length ? h[h.length - 1] : { price: null };
 }
 
 function pctChange(item, days) {
   const h = item.history.filter(x => x.price != null);
   if (h.length < 2) return null;
-  const now  = new Date(); now.setDate(now.getDate() - 1);
-  const past = new Date(); past.setDate(past.getDate() - days);
+  const past    = new Date(); past.setDate(past.getDate() - days);
   const pastStr = past.toISOString().slice(0, 10);
-  const cur = h[h.length - 1].price;
-  const old = h.filter(x => x.date <= pastStr).pop();
+  const cur     = h[h.length - 1].price;
+  const old     = h.filter(x => x.date <= pastStr).pop();
   if (!old || old.price === 0) return null;
   return (cur - old.price) / old.price * 100;
 }
 
 function fmtPct(v) {
   if (v == null) return { txt: "—", cls: "flat" };
-  const txt = (v > 0 ? "+" : "") + v.toFixed(1) + "%";
-  return { txt, cls: v > 0.5 ? "up" : v < -0.5 ? "down" : "flat" };
+  return { txt: (v > 0 ? "+" : "") + v.toFixed(1) + "%", cls: v > 0.5 ? "up" : v < -0.5 ? "down" : "flat" };
 }
 
-// ── Signal engine ────────────────────────────────────────────────────────────
-// Returns { label: "BUY"|"SELL"|"HOLD"|"NEW"|"WATCH", cls, score (0=best buy, 100=best sell) }
+// ── Signal engine ─────────────────────────────────────────────────────────────
 function getSignal(item) {
   const h = item.history.filter(x => x.price != null);
   if (h.length < 2) return { label: "NEW", cls: "NEW", score: 50, pos: null };
@@ -362,21 +270,17 @@ function getSignal(item) {
   const high    = Math.max(...prices);
   const low     = Math.min(...prices);
   const range   = high - low;
+  const position = range > 0 ? (current - low) / range : 0.5;
 
-  let position  = range > 0 ? (current - low) / range : 0.5;
-  let score     = position * 100;
-
+  let score = position * 100;
   const chg7  = pctChange(item, 7);
   const chg30 = pctChange(item, 30);
-
-  // Trend adjustment: dipping prices → score down (better buy), rising → score up
   if (chg7  != null) score += chg7  * 0.8;
   if (chg30 != null) score += chg30 * 0.4;
   score = Math.max(0, Math.min(100, score));
 
   let label, cls;
   if (h.length < 5) {
-    // Not enough history yet — show WATCH if price dropping, else NEW
     label = (chg7 != null && chg7 < -3) ? "WATCH" : "NEW";
     cls   = label;
   } else if (score <= 28) { label = "BUY";  cls = "BUY";  }
@@ -391,62 +295,62 @@ function signalBadge(sig) {
   return `<span class="sig sig-${sig.label}">${icons[sig.label]||""} ${sig.label}</span>`;
 }
 
-function positionBar(pos) {
+function posBar(pos) {
   if (pos == null) return "—";
-  const pct = Math.max(0, Math.min(100, pos));
-  const col  = pct <= 30 ? "var(--green)" : pct >= 70 ? "var(--red)" : "var(--gold)";
+  const col = pos <= 30 ? "var(--green)" : pos >= 70 ? "var(--red)" : "var(--gold)";
   return `<div style="display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--muted)">
     <div style="width:52px;height:5px;background:var(--border);border-radius:3px;overflow:hidden">
-      <div style="width:${pct}%;height:100%;background:${col};border-radius:3px"></div>
-    </div>${pct}</div>`;
+      <div style="width:${pos}%;height:100%;background:${col};border-radius:3px"></div>
+    </div>${pos}</div>`;
 }
 
-// ── Set name fuzzy match ─────────────────────────────────────────────────────
-function normSetName(s) {
-  return (s || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+// ── Set helpers ───────────────────────────────────────────────────────────────
+function getTopPerSet(cards) {
+  const bySet = {};
+  for (const c of cards) {
+    const price = latestPrice(c).price || 0;
+    if (!bySet[c.set_name] || price > (latestPrice(bySet[c.set_name]).price || 0))
+      bySet[c.set_name] = c;
+  }
+  return Object.values(bySet);
 }
 
 function buildSetValues() {
   setValues = {};
   for (const c of Object.values(cardMap)) {
-    const key = normSetName(c.set_name);
+    const key   = c.set_name;
     const price = latestPrice(c).price || 0;
-    if (!setValues[key]) setValues[key] = { total: 0, cards: [], rawName: c.set_name };
+    if (!setValues[key]) setValues[key] = { total: 0, cards: [], name: key };
     setValues[key].total += price;
     setValues[key].cards.push(c);
   }
 }
 
-function getSetValue(setName) {
-  return setValues[normSetName(setName)] || null;
-}
-
-// ── Sparkline ────────────────────────────────────────────────────────────────
-function sparkSVG(item, color = "#58a6ff") {
+// ── Sparkline / Chart ─────────────────────────────────────────────────────────
+function sparkSVG(item) {
   const h = item.history.filter(x => x.price != null);
   if (h.length < 2) return `<svg class="sparkline"></svg>`;
   const prices = h.map(x => x.price);
-  const min = Math.min(...prices), max = Math.max(...prices);
-  const range = max - min || 1;
+  const min = Math.min(...prices), max = Math.max(...prices), range = max - min || 1;
   const W = 80, H = 26;
   const pts = prices.map((p, i) => {
-    const x = (i / (prices.length - 1)) * W;
-    const y = H - ((p - min) / range) * (H - 4) - 2;
+    const x = i / (prices.length - 1) * W;
+    const y = H - (p - min) / range * (H - 4) - 2;
     return `${x},${y}`;
   }).join(" ");
   return `<svg class="sparkline" viewBox="0 0 ${W} ${H}">
-    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="${pts}" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
 }
 
-function makeChart(canvasId, item, color) {
-  const h = item.history.filter(x => x.price != null);
+function makeChart(canvasId, item) {
+  const h   = item.history.filter(x => x.price != null);
   const ctx = document.getElementById(canvasId).getContext("2d");
   return new Chart(ctx, {
     type: "line",
     data: {
       labels: h.map(x => x.date),
-      datasets: [{ data: h.map(x => x.price), borderColor: color, backgroundColor: color + "18",
+      datasets: [{ data: h.map(x => x.price), borderColor: "#58a6ff", backgroundColor: "#58a6ff18",
         borderWidth: 2, fill: true, tension: 0.3, pointRadius: h.length > 30 ? 0 : 3 }]
     },
     options: { responsive: true, maintainAspectRatio: false,
@@ -459,192 +363,118 @@ function makeChart(canvasId, item, color) {
   });
 }
 
-// ── Tab switching ─────────────────────────────────────────────────────────────
+// ── Tab switch ────────────────────────────────────────────────────────────────
 function switchTab(tab) {
-  currentTab = tab;
-  document.querySelectorAll(".tab").forEach((t, i) => {
-    t.classList.toggle("active", (i===0&&tab==="signals")||(i===1&&tab==="cards")||(i===2&&tab==="sealed"));
-  });
-  document.getElementById("tab-signals").classList.toggle("active", tab==="signals");
-  document.getElementById("tab-cards").classList.toggle("active", tab==="cards");
-  document.getElementById("tab-sealed").classList.toggle("active", tab==="sealed");
+  document.querySelectorAll(".tab").forEach((t, i) => t.classList.toggle("active", (i===0&&tab==="signals")||(i===1&&tab==="cards")));
+  document.getElementById("tab-signals").classList.toggle("active", tab === "signals");
+  document.getElementById("tab-cards").classList.toggle("active", tab === "cards");
 }
 
-// ── Movers ───────────────────────────────────────────────────────────────────
-function renderMovers(gainEl, loseEl, items, clickFn) {
-  const scored = items.map(i => ({...i, chg7: pctChange(i,7)})).filter(i=>i.chg7!=null);
-  const sorted = [...scored].sort((a,b)=>b.chg7-a.chg7);
+// ── Movers ────────────────────────────────────────────────────────────────────
+function renderMovers(gainEl, loseEl, items) {
+  const scored = items.map(i => ({ ...i, chg7: pctChange(i, 7) })).filter(i => i.chg7 != null);
+  const sorted = [...scored].sort((a, b) => b.chg7 - a.chg7);
   const mk = i => {
     const p = fmtPct(i.chg7);
-    return `<div class="mover" onclick="${clickFn(i)}">
-      <div><div class="mover-name">${i.label||i.name||i.set}</div>
-      <div class="mover-sub">${i.set_name||i.set||""} ${i.type||""}</div></div>
+    return `<div class="mover" onclick="selectCard('${i.id}')">
+      <div><div class="mover-name">${i.name}</div><div class="mover-sub">${i.set_name}</div></div>
       <span class="chg ${p.cls}">${p.txt}</span></div>`;
   };
-  gainEl.innerHTML = sorted.filter(i=>i.chg7>0).slice(0,5).map(mk).join("") || `<div class="no-sel">No gainers yet</div>`;
-  loseEl.innerHTML = sorted.filter(i=>i.chg7<0).slice(-5).reverse().map(mk).join("") || `<div class="no-sel">No losers yet</div>`;
+  gainEl.innerHTML = sorted.filter(i => i.chg7 > 0).slice(0, 5).map(mk).join("") || `<div class="no-sel">No gainers yet</div>`;
+  loseEl.innerHTML = sorted.filter(i => i.chg7 < 0).slice(-5).reverse().map(mk).join("") || `<div class="no-sel">No losers yet</div>`;
 }
 
-// ══════════════════════════════════════════════════════════════════════════════
-// SIGNALS TAB
-// ══════════════════════════════════════════════════════════════════════════════
+// ── Signals tab ───────────────────────────────────────────────────────────────
 function renderSignals() {
-  if (!dataReady.cards && !dataReady.sealed) return;
-
   document.getElementById("loader-g").style.display = "none";
   document.getElementById("signals-body").style.display = "block";
 
-  // ── 1. Top chase per set signals ─────────────────────────────────
-  if (dataReady.cards) {
-    const topCards = getTopPerSet(Object.values(cardMap));
-    const withSig  = topCards.map(c => ({ ...c, sig: getSignal(c) }))
-                             .sort((a, b) => a.sig.score - b.sig.score);
+  const topCards  = getTopPerSet(Object.values(cardMap));
+  const withSig   = topCards.map(c => ({ ...c, sig: getSignal(c) }));
 
-    const el = document.getElementById("sig-cards-list");
-    el.innerHTML = withSig.slice(0, 20).map(c => {
-      const lp  = latestPrice(c);
-      const c7  = fmtPct(pctChange(c, 7));
-      return `<div class="sig-row" onclick="switchTab('cards');selectCard('${c.id}')">
-        <div class="sig-row-left">
-          <div class="sig-row-name">${c.name}</div>
-          <div class="sig-row-sub">${c.set_name} · ${c.rarity.replace("Special Illustration Rare","SIR").replace("Hyper Rare","HR").replace("Illustration Rare","IR")}</div>
-        </div>
-        <div class="sig-row-right">
-          ${signalBadge(c.sig)}
-          <span class="price" style="font-size:.85rem">${fmt$(lp.price)}</span>
-          <span class="chg ${c7.cls}" style="font-size:.75rem">${c7.txt}</span>
-        </div>
-      </div>`;
-    }).join("") || `<div class="no-sel">No card data yet</div>`;
-  }
+  const mkRow = c => {
+    const lp  = latestPrice(c);
+    const c7  = fmtPct(pctChange(c, 7));
+    return `<div class="sig-row" onclick="switchTab('cards');selectCard('${c.id}')">
+      <div class="sig-row-left">
+        <div class="sig-row-name">${c.name}</div>
+        <div class="sig-row-sub">${c.set_name} · ${c.rarity.replace("Special Illustration Rare","SIR").replace("Hyper Rare","HR").replace("Illustration Rare","IR")}</div>
+      </div>
+      <div class="sig-row-right">
+        ${signalBadge(c.sig)}
+        <span class="price" style="font-size:.84rem">${fmt$(lp.price)}</span>
+        <span class="chg ${c7.cls}" style="font-size:.74rem">${c7.txt}</span>
+      </div>
+    </div>`;
+  };
 
-  // ── 2. Sealed signals ─────────────────────────────────────────────
-  if (dataReady.sealed) {
-    const withSig = Object.values(sealedMap)
-      .filter(p => p.type === "Booster Box")
-      .map(p => {
-        const sv  = getSetValue(p.set);
-        const lp  = latestPrice(p).price || 0;
-        const ev  = sv && lp > 0 ? sv.total / lp : null;
-        return { ...p, sv, ev, sig: getSignal(p) };
-      })
-      .sort((a, b) => a.sig.score - b.sig.score);
+  // Buy signals
+  const buys = withSig.filter(c => c.sig.label === "BUY" || c.sig.label === "WATCH").sort((a,b) => a.sig.score - b.sig.score);
+  document.getElementById("sig-buy-list").innerHTML = buys.slice(0, 10).map(mkRow).join("") || `<div class="no-sel">No buy signals yet — need more historical data</div>`;
 
-    const el = document.getElementById("sig-sealed-list");
-    el.innerHTML = withSig.slice(0, 15).map(p => {
-      const lp = latestPrice(p);
-      const c7 = fmtPct(pctChange(p, 7));
-      const evStr = p.ev != null ? `EV ${p.ev.toFixed(2)}x` : "";
-      return `<div class="sig-row" onclick="switchTab('sealed');selectSealed('${(p.set+"|"+p.type).replace(/'/g,"\\'")}')">
-        <div class="sig-row-left">
-          <div class="sig-row-name">${p.set}</div>
-          <div class="sig-row-sub">Booster Box${evStr ? " · " + evStr : ""}</div>
-        </div>
-        <div class="sig-row-right">
-          ${signalBadge(p.sig)}
-          <span class="price" style="font-size:.85rem">${fmt$(lp.price)}</span>
-          <span class="chg ${c7.cls}" style="font-size:.75rem">${c7.txt}</span>
-        </div>
-      </div>`;
-    }).join("") || `<div class="no-sel">No sealed data yet</div>`;
-  }
+  // Sell signals
+  const sells = withSig.filter(c => c.sig.label === "SELL").sort((a,b) => b.sig.score - a.sig.score);
+  document.getElementById("sig-sell-list").innerHTML = sells.slice(0, 10).map(mkRow).join("") || `<div class="no-sel">No sell signals yet</div>`;
 
-  // ── 3. Set value rankings ─────────────────────────────────────────
-  if (dataReady.cards) {
-    const ranked = Object.entries(setValues)
-      .map(([k, v]) => v)
-      .filter(v => v.total > 0)
-      .sort((a, b) => b.total - a.total);
-    const maxVal = ranked[0]?.total || 1;
+  // Set value rankings
+  const ranked = Object.values(setValues).filter(v => v.total > 0).sort((a,b) => b.total - a.total);
+  const maxVal = ranked[0]?.total || 1;
+  document.getElementById("sig-setval-list").innerHTML = ranked.slice(0, 10).map(v => {
+    const top = v.cards.slice().sort((a,b) => (latestPrice(b).price||0) - (latestPrice(a).price||0))[0];
+    const pct = v.total / maxVal * 100;
+    return `<div class="sig-row">
+      <div class="sig-row-left">
+        <div class="sig-row-name">${v.name}</div>
+        <div class="sig-row-sub">${v.cards.length} chase cards · top: ${top?.name||"—"}</div>
+        <div class="ev-bar-wrap"><div class="ev-bar"><div class="ev-bar-fill" style="width:${pct}%"></div></div></div>
+      </div>
+      <div class="sig-row-right"><span class="price" style="font-size:.9rem">${fmt$(v.total)}</span></div>
+    </div>`;
+  }).join("") || `<div class="no-sel">No data</div>`;
 
-    const el = document.getElementById("sig-setval-list");
-    el.innerHTML = ranked.slice(0, 12).map((v, i) => {
-      const topCard = v.cards.slice().sort((a,b)=>(latestPrice(b).price||0)-(latestPrice(a).price||0))[0];
-      const pct = v.total / maxVal * 100;
-      return `<div class="sig-row">
-        <div class="sig-row-left">
-          <div class="sig-row-name">${v.rawName}</div>
-          <div class="sig-row-sub">${v.cards.length} chase cards · top: ${topCard?.name||"—"}</div>
-          <div class="ev-bar-wrap"><div class="ev-bar"><div class="ev-bar-fill" style="width:${pct}%"></div></div></div>
-        </div>
-        <div class="sig-row-right">
-          <span class="price" style="font-size:.9rem">${fmt$(v.total)}</span>
-        </div>
-      </div>`;
-    }).join("") || `<div class="no-sel">No data</div>`;
-  }
-
-  // ── 4. EV leaders ─────────────────────────────────────────────────
-  if (dataReady.cards && dataReady.sealed) {
-    const evList = Object.values(sealedMap)
-      .filter(p => p.type === "Booster Box")
-      .map(p => {
-        const sv = getSetValue(p.set);
-        const lp = latestPrice(p).price || 0;
-        if (!sv || lp <= 0) return null;
-        return { ...p, sv, ev: sv.total / lp };
-      })
-      .filter(Boolean)
-      .sort((a, b) => b.ev - a.ev);
-
-    const maxEV = evList[0]?.ev || 1;
-
-    const el = document.getElementById("sig-ev-list");
-    el.innerHTML = evList.slice(0, 12).map(p => {
-      const lp  = latestPrice(p);
-      const pct = p.ev / maxEV * 100;
-      const evColor = p.ev >= 2 ? "var(--green)" : p.ev >= 1 ? "var(--gold)" : "var(--muted)";
-      return `<div class="sig-row" onclick="switchTab('sealed');selectSealed('${(p.set+"|"+p.type).replace(/'/g,"\\'")}')">
-        <div class="sig-row-left">
-          <div class="sig-row-name">${p.set}</div>
-          <div class="sig-row-sub">Box ${fmt$(lp.price)} · Set value ${fmt$(p.sv.total)}</div>
-          <div class="ev-bar-wrap"><div class="ev-bar"><div class="ev-bar-fill" style="width:${pct}%;background:${evColor}"></div></div></div>
-        </div>
-        <div class="sig-row-right">
-          <span style="font-size:.95rem;font-weight:700;color:${evColor}">${p.ev.toFixed(2)}x</span>
-        </div>
-      </div>`;
-    }).join("") || `<div class="no-sel">No matching data</div>`;
-
-    // Best EV stat for sealed tab
-    if (evList.length > 0) {
-      document.getElementById("s-stat-top").textContent = evList[0].set + " (" + evList[0].ev.toFixed(2) + "x)";
-    }
-  }
+  // Biggest dips (all cards, not just top per set)
+  const allCards = Object.values(cardMap);
+  const dips = allCards.map(c => ({ ...c, chg7: pctChange(c, 7) }))
+    .filter(c => c.chg7 != null && c.chg7 < 0)
+    .sort((a, b) => a.chg7 - b.chg7);
+  document.getElementById("sig-dips-list").innerHTML = dips.slice(0, 10).map(c => {
+    const lp = latestPrice(c);
+    const p  = fmtPct(c.chg7);
+    return `<div class="sig-row" onclick="switchTab('cards');selectCard('${c.id}')">
+      <div class="sig-row-left">
+        <div class="sig-row-name">${c.name}</div>
+        <div class="sig-row-sub">${c.set_name}</div>
+      </div>
+      <div class="sig-row-right">
+        <span class="chg down" style="font-size:.9rem;font-weight:700">${p.txt}</span>
+        <span style="font-size:.8rem;color:var(--muted)">${fmt$(lp.price)}</span>
+      </div>
+    </div>`;
+  }).join("") || `<div class="no-sel">No dips yet</div>`;
 }
 
-// ══════════════════════════════════════════════════════════════════════════════
-// CHASE CARDS
-// ══════════════════════════════════════════════════════════════════════════════
-function getTopPerSet(cards) {
-  const bySet = {};
-  for (const c of cards) {
-    const price = latestPrice(c).price || 0;
-    if (!bySet[c.set_name] || price > (latestPrice(bySet[c.set_name]).price || 0)) {
-      bySet[c.set_name] = c;
-    }
-  }
-  return Object.values(bySet);
-}
-
+// ── Cards tab ─────────────────────────────────────────────────────────────────
 async function loadCards() {
   try {
     const res = await fetch(CARDS_CSV + "?v=" + Date.now());
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const rows = csvParse(await res.text());
+
     cardMap = {};
     for (const r of rows) {
       const id = r.card_id || (r.name + "|" + r.set_name);
       if (!cardMap[id]) cardMap[id] = { id, name: r.name, set_name: r.set_name, rarity: r.rarity, card_number: r.card_number, history: [] };
-      cardMap[id].history.push({ date: r.date, price: parseFloat(r.market_price) || null, low: parseFloat(r.low_price) || null, high: parseFloat(r.high_price) || null });
+      cardMap[id].history.push({ date: r.date, price: parseFloat(r.market_price) || null });
     }
     Object.values(cardMap).forEach(c => c.history.sort((a, b) => a.date < b.date ? -1 : 1));
     buildSetValues();
+
     const cards = Object.values(cardMap);
     const sets  = [...new Set(cards.map(c => c.set_name).filter(Boolean))].sort();
     const rars  = [...new Set(cards.map(c => c.rarity).filter(Boolean))].sort();
     sets.forEach(s => { const o = document.createElement("option"); o.value = s; o.textContent = s; document.getElementById("c-filter-set").appendChild(o); });
     rars.forEach(r => { const o = document.createElement("option"); o.value = r; o.textContent = r; document.getElementById("c-filter-rarity").appendChild(o); });
+
     document.getElementById("c-stat-cards").textContent = cards.length;
     document.getElementById("c-stat-sets").textContent  = sets.length;
     document.getElementById("c-stat-days").textContent  = new Set(rows.map(r => r.date)).size;
@@ -653,16 +483,15 @@ async function loadCards() {
     document.getElementById("last-update").textContent = "Updated: " + (rows.at(-1)?.date || "");
     document.getElementById("c-loader").style.display = "none";
     document.getElementById("c-table").style.display  = "";
+
     applyCardFilters();
-    renderMovers(document.getElementById("c-gainers"), document.getElementById("c-losers"),
-      cards.map(c => ({ ...c, label: c.name })), i => `selectCard('${i.id}')`);
-    dataReady.cards = true;
+    renderMovers(document.getElementById("c-gainers"), document.getElementById("c-losers"), cards);
     renderSignals();
   } catch(e) {
     document.getElementById("c-loader").style.display = "none";
     const el = document.getElementById("c-err"); el.style.display = "block";
     el.textContent = "⚠ " + e.message + " — Make sure data/history.csv exists in the repo.";
-    dataReady.cards = true; renderSignals();
+    renderSignals();
   }
 }
 
@@ -687,10 +516,10 @@ function applyCardFilters() {
   const [col, dir] = cSort.endsWith("_asc") ? [cSort.replace("_asc",""),"asc"] : [cSort.replace("_desc",""),"desc"];
   cFiltered.sort((a, b) => {
     let va, vb;
-    if (col === "market_price") { va = latestPrice(a).price||0; vb = latestPrice(b).price||0; }
-    else if (col === "chg7")    { va = pctChange(a,7)??-999;   vb = pctChange(b,7)??-999; }
-    else if (col === "chg30")   { va = pctChange(a,30)??-999;  vb = pctChange(b,30)??-999; }
-    else if (col === "signal")  { va = getSignal(a).score;      vb = getSignal(b).score; }
+    if      (col === "market_price") { va = latestPrice(a).price||0; vb = latestPrice(b).price||0; }
+    else if (col === "chg7")         { va = pctChange(a,7)??-999;   vb = pctChange(b,7)??-999; }
+    else if (col === "chg30")        { va = pctChange(a,30)??-999;  vb = pctChange(b,30)??-999; }
+    else if (col === "signal")       { va = getSignal(a).score;      vb = getSignal(b).score; }
     else { va = (a[col]||"").toLowerCase(); vb = (b[col]||"").toLowerCase(); }
     return dir === "asc" ? (va > vb ? 1 : -1) : (va < vb ? 1 : -1);
   });
@@ -698,9 +527,9 @@ function applyCardFilters() {
 }
 
 function rarityBadge(r) {
-  const s = (r||"").toUpperCase();
+  const s   = (r||"").toUpperCase();
   const cls = s === "SPECIAL ILLUSTRATION RARE" ? "SIR" : s === "HYPER RARE" ? "HR" : s === "ILLUSTRATION RARE" ? "IR" : "OTHER";
-  const lbl = cls === "SIR" ? "SIR" : cls === "HR" ? "HR" : cls === "IR" ? "IR" : s.slice(0,6);
+  const lbl = { SIR:"SIR", HR:"HR", IR:"IR", OTHER: s.slice(0,6) }[cls];
   return `<span class="badge badge-${cls}">${lbl}</span>`;
 }
 
@@ -709,17 +538,17 @@ function renderCardTable() {
   if (!cFiltered.length) { tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--muted);padding:28px">No results</td></tr>`; return; }
   tbody.innerHTML = cFiltered.map(c => {
     const lp  = latestPrice(c);
-    const c7  = fmtPct(pctChange(c,7));
-    const c30 = fmtPct(pctChange(c,30));
+    const c7  = fmtPct(pctChange(c, 7));
+    const c30 = fmtPct(pctChange(c, 30));
     const sig = getSignal(c);
     return `<tr class="${c.id === cSelected ? "selected" : ""}" onclick="selectCard('${c.id}')">
-      <td style="font-weight:600;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.name||"—"}</td>
-      <td style="color:var(--muted);font-size:.8rem;white-space:nowrap">${c.set_name||"—"}</td>
+      <td style="font-weight:600;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.name}</td>
+      <td style="color:var(--muted);font-size:.8rem;white-space:nowrap">${c.set_name}</td>
       <td>${rarityBadge(c.rarity)}</td>
       <td class="price">${fmt$(lp.price)}</td>
       <td class="chg ${c7.cls}">${c7.txt}</td>
       <td class="chg ${c30.cls}">${c30.txt}</td>
-      <td>${positionBar(sig.pos)}</td>
+      <td>${posBar(sig.pos)}</td>
       <td>${signalBadge(sig)}</td>
       <td>${sparkSVG(c)}</td>
     </tr>`;
@@ -731,10 +560,10 @@ function selectCard(id) {
   renderCardTable();
   const c = cardMap[id]; if (!c) return;
   document.querySelector("#c-detail .no-sel").style.display = "none";
-  document.getElementById("c-detail-inner").style.display = "block";
+  document.getElementById("c-detail-inner").style.display  = "block";
   const lp  = latestPrice(c);
-  const c7  = fmtPct(pctChange(c,7));
-  const c30 = fmtPct(pctChange(c,30));
+  const c7  = fmtPct(pctChange(c, 7));
+  const c30 = fmtPct(pctChange(c, 30));
   const sig = getSignal(c);
   document.getElementById("sel-name").textContent  = c.name;
   document.getElementById("sel-meta").textContent  = `${c.set_name} · ${c.card_number} · ${c.rarity}`;
@@ -742,14 +571,14 @@ function selectCard(id) {
   document.getElementById("sel-signal").innerHTML  = signalBadge(sig);
   document.getElementById("sel-chg").innerHTML     = `<span class="chg ${c7.cls}">${c7.txt} (7d)</span>&nbsp;&nbsp;<span class="chg ${c30.cls}">${c30.txt} (30d)</span>`;
   const prices = c.history.filter(h => h.price).map(h => h.price);
-  document.getElementById("d-low").textContent  = fmt$(Math.min(...prices));
-  document.getElementById("d-high").textContent = fmt$(Math.max(...prices));
+  document.getElementById("d-low").textContent = fmt$(Math.min(...prices));
+  document.getElementById("d-high").textContent= fmt$(Math.max(...prices));
   const l30 = c.history.filter(h => { const d=new Date(); d.setDate(d.getDate()-30); return h.price && h.date >= d.toISOString().slice(0,10); });
-  document.getElementById("d-avg").textContent  = fmt$(l30.length ? l30.reduce((s,h)=>s+h.price,0)/l30.length : null);
-  document.getElementById("d-pos").textContent  = sig.pos != null ? sig.pos + " / 100" : "—";
-  document.getElementById("d-pts").textContent  = prices.length;
+  document.getElementById("d-avg").textContent = fmt$(l30.length ? l30.reduce((s,h)=>s+h.price,0)/l30.length : null);
+  document.getElementById("d-pos").textContent = sig.pos != null ? sig.pos + " / 100" : "—";
+  document.getElementById("d-pts").textContent = prices.length;
   if (cChart) cChart.destroy();
-  cChart = makeChart("c-chart", c, "#58a6ff");
+  cChart = makeChart("c-chart", c);
 }
 
 document.getElementById("c-search").addEventListener("input", applyCardFilters);
@@ -757,133 +586,7 @@ document.getElementById("c-filter-set").addEventListener("change", applyCardFilt
 document.getElementById("c-filter-rarity").addEventListener("change", applyCardFilters);
 document.getElementById("c-sort").addEventListener("change", e => { cSort = e.target.value; applyCardFilters(); });
 
-// ══════════════════════════════════════════════════════════════════════════════
-// SEALED PRODUCTS
-// ══════════════════════════════════════════════════════════════════════════════
-async function loadSealed() {
-  try {
-    const res = await fetch(SEALED_CSV + "?v=" + Date.now());
-    if (!res.ok) throw new Error(`HTTP ${res.status} — run the scraper first`);
-    const rows = csvParse(await res.text());
-    sealedMap = {};
-    for (const r of rows) {
-      const id = r.set + "|" + r.type;
-      if (!sealedMap[id]) sealedMap[id] = { id, set: r.set, type: r.type, name: r.name, source_url: r.source_url, history: [] };
-      sealedMap[id].history.push({ date: r.date, price: parseFloat(r.market_price)||null, low: parseFloat(r.low_price)||null, high: parseFloat(r.high_price)||null });
-    }
-    Object.values(sealedMap).forEach(p => p.history.sort((a,b) => a.date < b.date ? -1 : 1));
-    const prods = Object.values(sealedMap);
-    const sets  = [...new Set(prods.map(p => p.set).filter(Boolean))].sort();
-    sets.forEach(s => { const o = document.createElement("option"); o.value = s; o.textContent = s; document.getElementById("s-filter-set").appendChild(o); });
-    document.getElementById("s-stat-products").textContent = prods.length;
-    document.getElementById("s-stat-sets").textContent     = new Set(prods.map(p => p.set)).size;
-    document.getElementById("s-stat-days").textContent     = new Set(rows.map(r => r.date)).size;
-    document.getElementById("s-loader").style.display = "none";
-    document.getElementById("s-table").style.display  = "";
-    applySealedFilters();
-    renderMovers(document.getElementById("s-gainers"), document.getElementById("s-losers"),
-      prods.map(p => ({ ...p, label: p.set + " " + p.type, set_name: "" })), i => `selectSealed('${i.id.replace(/'/g,"\\'")}')`);
-    dataReady.sealed = true;
-    renderSignals();
-  } catch(e) {
-    document.getElementById("s-loader").style.display = "none";
-    const el = document.getElementById("s-err"); el.style.display = "block";
-    el.textContent = "⚠ " + e.message;
-    dataReady.sealed = true; renderSignals();
-  }
-}
-
-function applySealedFilters() {
-  const search = document.getElementById("s-search").value.toLowerCase();
-  const set    = document.getElementById("s-filter-set").value;
-  const type   = document.getElementById("s-filter-type").value;
-  sFiltered = Object.values(sealedMap).filter(p => {
-    if (set    && p.set  !== set)  return false;
-    if (type   && p.type !== type) return false;
-    if (search && !p.set?.toLowerCase().includes(search)) return false;
-    return true;
-  }).map(p => {
-    const sv = getSetValue(p.set);
-    const lp = latestPrice(p).price || 0;
-    return { ...p, _sv: sv ? sv.total : null, _ev: (sv && lp > 0) ? sv.total / lp : null };
-  });
-
-  const [col, dir] = sSort.endsWith("_asc") ? [sSort.replace("_asc",""),"asc"] : [sSort.replace("_desc",""),"desc"];
-  sFiltered.sort((a, b) => {
-    let va, vb;
-    if      (col === "market_price") { va = latestPrice(a).price||0; vb = latestPrice(b).price||0; }
-    else if (col === "chg7")         { va = pctChange(a,7)??-999;    vb = pctChange(b,7)??-999; }
-    else if (col === "ev")           { va = a._ev ?? -1;             vb = b._ev ?? -1; }
-    else if (col === "signal")       { va = getSignal(a).score;       vb = getSignal(b).score; }
-    else { va = (a[col]||"").toLowerCase(); vb = (b[col]||"").toLowerCase(); }
-    return dir === "asc" ? (va > vb ? 1 : -1) : (va < vb ? 1 : -1);
-  });
-  renderSealedTable();
-}
-
-function typeBadge(t) {
-  const cls = t === "Booster Box" ? "BOX" : t === "ETB" ? "ETB" : "OTHER";
-  return `<span class="badge badge-${cls}">${t}</span>`;
-}
-
-function renderSealedTable() {
-  const tbody = document.getElementById("s-tbody");
-  if (!sFiltered.length) { tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:28px">No results</td></tr>`; return; }
-  tbody.innerHTML = sFiltered.map(p => {
-    const lp  = latestPrice(p);
-    const c7  = fmtPct(pctChange(p,7));
-    const sig = getSignal(p);
-    const evStr = p._ev != null ? p._ev.toFixed(2) + "x" : "—";
-    const evColor = p._ev != null ? (p._ev >= 2 ? "var(--green)" : p._ev >= 1 ? "var(--gold)" : "var(--muted)") : "var(--muted)";
-    return `<tr class="${p.id === sSelected ? "selected" : ""}" onclick="selectSealed('${p.id.replace(/'/g,"\\'")}')">
-      <td style="font-weight:600">${p.set}</td>
-      <td>${typeBadge(p.type)}</td>
-      <td class="price">${fmt$(lp.price)}</td>
-      <td style="color:var(--muted);font-size:.82rem">${p._sv != null ? fmt$(p._sv) : "—"}</td>
-      <td style="font-weight:700;color:${evColor}">${evStr}</td>
-      <td class="chg ${c7.cls}">${c7.txt}</td>
-      <td>${signalBadge(sig)}</td>
-      <td>${sparkSVG(p, p.type==="Booster Box"?"#3fb950":"#58a6ff")}</td>
-    </tr>`;
-  }).join("");
-}
-
-function selectSealed(id) {
-  sSelected = id;
-  renderSealedTable();
-  const p = sealedMap[id]; if (!p) return;
-  document.querySelector("#s-detail .no-sel").style.display = "none";
-  document.getElementById("s-detail-inner").style.display = "block";
-  const lp  = latestPrice(p);
-  const c7  = fmtPct(pctChange(p,7));
-  const c30 = fmtPct(pctChange(p,30));
-  const sig = getSignal(p);
-  const sv  = getSetValue(p.set);
-  const ev  = sv && lp.price > 0 ? sv.total / lp.price : null;
-  document.getElementById("s-sel-name").textContent  = `${p.set} ${p.type}`;
-  document.getElementById("s-sel-meta").textContent  = p.name || "";
-  document.getElementById("s-sel-price").textContent = fmt$(lp.price);
-  document.getElementById("s-sel-signal").innerHTML  = signalBadge(sig);
-  document.getElementById("s-sel-chg").innerHTML     = `<span class="chg ${c7.cls}">${c7.txt} (7d)</span>&nbsp;&nbsp;<span class="chg ${c30.cls}">${c30.txt} (30d)</span>`;
-  const prices = p.history.filter(h => h.price).map(h => h.price);
-  document.getElementById("s-d-low").textContent    = fmt$(Math.min(...prices));
-  document.getElementById("s-d-high").textContent   = fmt$(Math.max(...prices));
-  document.getElementById("s-d-setval").textContent = sv ? fmt$(sv.total) : "—";
-  document.getElementById("s-d-ev").textContent     = ev != null ? ev.toFixed(2) + "x" : "—";
-  const l30 = p.history.filter(h => { const d=new Date(); d.setDate(d.getDate()-30); return h.price && h.date >= d.toISOString().slice(0,10); });
-  document.getElementById("s-d-avg").textContent = fmt$(l30.length ? l30.reduce((s,h)=>s+h.price,0)/l30.length : null);
-  document.getElementById("s-d-pts").textContent = prices.length;
-  if (sChart) sChart.destroy();
-  sChart = makeChart("s-chart", p, p.type === "Booster Box" ? "#3fb950" : "#58a6ff");
-}
-
-document.getElementById("s-search").addEventListener("input", applySealedFilters);
-document.getElementById("s-filter-set").addEventListener("change", applySealedFilters);
-document.getElementById("s-filter-type").addEventListener("change", applySealedFilters);
-document.getElementById("s-sort").addEventListener("change", e => { sSort = e.target.value; applySealedFilters(); });
-
-// ── Boot ──────────────────────────────────────────────────────────────────────
-Promise.all([loadCards(), loadSealed()]);
+loadCards();
 </script>
 </body>
 </html>
