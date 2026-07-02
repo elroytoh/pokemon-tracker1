@@ -581,7 +581,6 @@ function selectCard(id) {
   document.getElementById("d-low").textContent  = fmt$(Math.min(...w30prices));
   document.getElementById("d-high").textContent = fmt$(Math.max(...w30prices));
   document.getElementById("d-avg").textContent  = fmt$(w30prices.reduce((s,p)=>s+p,0)/w30prices.length);
-  const c30 = fmtPct(pctChange(c, 30));
   document.getElementById("d-chg30").innerHTML  = `<span class="chg ${c30.cls}">${c30.txt}</span>`;
   document.getElementById("d-pos").textContent  = sig.pos != null ? sig.pos + " / 100" : "—";
   document.getElementById("d-pts").textContent  = prices.length;
