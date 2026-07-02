@@ -113,13 +113,6 @@
   <div id="loader-g" class="loader"><div class="spinner"></div> Loading signals…</div>
   <div id="signals-body" style="display:none">
 
-    <div class="hypo-box">
-      <strong>📖 Strategy:</strong> When a new set releases, heavy supply pushes the top chase card to its lowest price.
-      Once the next set drops, supply dries up and price recovers.
-      <strong>Buy the dip on new releases, sell into the next set window.</strong>
-      Signal is based on price position (0 = all-time low, 100 = all-time high) combined with recent trend.
-    </div>
-
     <div class="signals-grid">
       <div class="sig-card">
         <h2>🟢 Buy Opportunities — Top Chase Per Set</h2>
@@ -175,7 +168,7 @@
           <th>Market</th>
           <th>7d %</th>
           <th>30d %</th>
-          <th>Position</th>
+          <th>30d Position</th>
           <th>Signal</th>
           <th>Trend</th>
         </tr></thead>
@@ -195,10 +188,11 @@
           <div id="sel-chg" style="font-size:.87rem;margin-bottom:10px"></div>
           <div style="position:relative;height:175px"><canvas id="c-chart"></canvas></div>
           <div style="margin-top:10px">
-            <div class="pr"><span>All-time low</span><span id="d-low">—</span></div>
-            <div class="pr"><span>All-time high</span><span id="d-high">—</span></div>
+            <div class="pr"><span>30d low</span><span id="d-low">—</span></div>
+            <div class="pr"><span>30d high</span><span id="d-high">—</span></div>
             <div class="pr"><span>30d avg</span><span id="d-avg">—</span></div>
-            <div class="pr"><span>Position (0=low 100=high)</span><span id="d-pos">—</span></div>
+            <div class="pr"><span>30d change</span><span id="d-chg30">—</span></div>
+            <div class="pr"><span>30d position (0=low 100=high)</span><span id="d-pos">—</span></div>
             <div class="pr"><span>Data points</span><span id="d-pts">—</span></div>
           </div>
         </div>
@@ -260,34 +254,45 @@ function fmtPct(v) {
   return { txt: (v > 0 ? "+" : "") + v.toFixed(1) + "%", cls: v > 0.5 ? "up" : v < -0.5 ? "down" : "flat" };
 }
 
-// ── Signal engine ─────────────────────────────────────────────────────────────
+// ── Signal engine (30-day window) ────────────────────────────────────────────
+function get30dWindow(item) {
+  const h      = item.history.filter(x => x.price != null);
+  const cutoff = new Date(); cutoff.setDate(cutoff.getDate() - 30);
+  const cutStr = cutoff.toISOString().slice(0, 10);
+  const window = h.filter(x => x.date >= cutStr);
+  // Fall back to all data if we have less than 30 days
+  return window.length >= 2 ? window : h;
+}
+
 function getSignal(item) {
   const h = item.history.filter(x => x.price != null);
-  if (h.length < 2) return { label: "NEW", cls: "NEW", score: 50, pos: null };
+  if (h.length < 2) return { label: "NEW", cls: "NEW", score: 50, pos: null, high30: null, low30: null };
 
-  const prices  = h.map(x => x.price);
-  const current = prices[prices.length - 1];
-  const high    = Math.max(...prices);
-  const low     = Math.min(...prices);
-  const range   = high - low;
-  const position = range > 0 ? (current - low) / range : 0.5;
+  const window  = get30dWindow(item);
+  const prices  = window.map(x => x.price);
+  const current = h[h.length - 1].price;
+  const high30  = Math.max(...prices);
+  const low30   = Math.min(...prices);
+  const range   = high30 - low30;
 
+  // Position within 30d range: 0 = at 30d low, 100 = at 30d high
+  const position = range > 0 ? (current - low30) / range : 0.5;
   let score = position * 100;
-  const chg7  = pctChange(item, 7);
-  const chg30 = pctChange(item, 30);
-  if (chg7  != null) score += chg7  * 0.8;
-  if (chg30 != null) score += chg30 * 0.4;
+
+  // Nudge by 7d trend direction
+  const chg7 = pctChange(item, 7);
+  if (chg7 != null) score += chg7 * 0.8;
   score = Math.max(0, Math.min(100, score));
 
   let label, cls;
-  if (h.length < 5) {
+  if (h.length < 3) {
     label = (chg7 != null && chg7 < -3) ? "WATCH" : "NEW";
     cls   = label;
-  } else if (score <= 28) { label = "BUY";  cls = "BUY";  }
-  else if (score >= 72)   { label = "SELL"; cls = "SELL"; }
+  } else if (score <= 25) { label = "BUY";  cls = "BUY";  }
+  else if (score >= 75)   { label = "SELL"; cls = "SELL"; }
   else                    { label = "HOLD"; cls = "HOLD"; }
 
-  return { label, cls, score, pos: Math.round(position * 100) };
+  return { label, cls, score, pos: Math.round(position * 100), high30, low30 };
 }
 
 function signalBadge(sig) {
@@ -571,12 +576,15 @@ function selectCard(id) {
   document.getElementById("sel-signal").innerHTML  = signalBadge(sig);
   document.getElementById("sel-chg").innerHTML     = `<span class="chg ${c7.cls}">${c7.txt} (7d)</span>&nbsp;&nbsp;<span class="chg ${c30.cls}">${c30.txt} (30d)</span>`;
   const prices = c.history.filter(h => h.price).map(h => h.price);
-  document.getElementById("d-low").textContent = fmt$(Math.min(...prices));
-  document.getElementById("d-high").textContent= fmt$(Math.max(...prices));
-  const l30 = c.history.filter(h => { const d=new Date(); d.setDate(d.getDate()-30); return h.price && h.date >= d.toISOString().slice(0,10); });
-  document.getElementById("d-avg").textContent = fmt$(l30.length ? l30.reduce((s,h)=>s+h.price,0)/l30.length : null);
-  document.getElementById("d-pos").textContent = sig.pos != null ? sig.pos + " / 100" : "—";
-  document.getElementById("d-pts").textContent = prices.length;
+  const w30    = get30dWindow(c);
+  const w30prices = w30.map(h => h.price);
+  document.getElementById("d-low").textContent  = fmt$(Math.min(...w30prices));
+  document.getElementById("d-high").textContent = fmt$(Math.max(...w30prices));
+  document.getElementById("d-avg").textContent  = fmt$(w30prices.reduce((s,p)=>s+p,0)/w30prices.length);
+  const c30 = fmtPct(pctChange(c, 30));
+  document.getElementById("d-chg30").innerHTML  = `<span class="chg ${c30.cls}">${c30.txt}</span>`;
+  document.getElementById("d-pos").textContent  = sig.pos != null ? sig.pos + " / 100" : "—";
+  document.getElementById("d-pts").textContent  = prices.length;
   if (cChart) cChart.destroy();
   cChart = makeChart("c-chart", c);
 }
